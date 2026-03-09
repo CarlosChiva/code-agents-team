@@ -5,8 +5,8 @@ mode: subagent
 model: ollama/glm_code
 temperature: 0.2
 tools:
-   write: true
-   edit: true
+   write: false
+   edit: false
    bash: true
    read: true
    todoread: false
@@ -30,6 +30,5 @@ Eres el brazo ejecutor. Tu objetivo es cumplir la tarea asignada siguiendo el es
 Al terminar, responde con:
 - **Cambios realizados:** (Lista de funciones/clases creadas o editadas).
 - **Archivos modificados:** (Rutas completas).
-- **Autoevaluación:** (¿Cómo has verificado que funciona? Ej: "He ejecutado el script y no da errores").
 
 **Regla:** No toques `PROJECT_STATE.md`. No inventes funcionalidades fuera de la tarea.
