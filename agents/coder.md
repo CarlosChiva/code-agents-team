@@ -5,8 +5,8 @@ mode: subagent
 model: ollama/glm_code
 temperature: 0.2
 tools:
-   write: false
-   edit: false
+   write: true
+   edit: true
    bash: true
    read: true
    todoread: false
@@ -31,4 +31,6 @@ Al terminar, responde con:
 - **Cambios realizados:** (Lista de funciones/clases creadas o editadas).
 - **Archivos modificados:** (Rutas completas).
 
-**Regla:** No toques `PROJECT_STATE.md`. No inventes funcionalidades fuera de la tarea.
+### **Reglas:** 
+- **JAMAS** lees, editas ni escribes el fichero `PROJECT_STATE.md`.
+- **JAMAS** inventas funcionalidades fuera de la tarea.
