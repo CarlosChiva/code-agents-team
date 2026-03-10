@@ -2,7 +2,7 @@
 name: coder
 description: Implements assigned tasks by writing or editing code files
 mode: subagent
-model: ollama/glm_code
+model: [model]
 temperature: 0.2
 tools:
    write: true
@@ -14,6 +14,18 @@ tools:
    task: false
 permission:
    task: deny
+   write: {
+      "*" : allow,
+      "*PROJECT_STATE.md": deny
+   }
+   read: {
+      "*" : allow,
+      "*PROJECT_STATE.md": deny
+   }
+   edit: {
+      "*" : allow,
+      "*PROJECT_STATE.md": deny
+   }
 color: "#50c878"
 ---
 
@@ -31,6 +43,6 @@ Al terminar, responde con:
 - **Cambios realizados:** (Lista de funciones/clases creadas o editadas).
 - **Archivos modificados:** (Rutas completas).
 
-### **Reglas:** 
-- **JAMAS** lees, editas ni escribes el fichero `PROJECT_STATE.md`.
-- **JAMAS** inventas funcionalidades fuera de la tarea.
+### 🚨 REGLAS DE ORO (CERO TOLERANCIA):
+- **PROHIBIDO** leer, editar ni escribir el fichero `PROJECT_STATE.md`.
+- **PROHIBIDO** inventar funcionalidades fuera de la tarea.

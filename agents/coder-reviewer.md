@@ -2,7 +2,7 @@
 name: coder-reviewer
 description: Reviews coder output and returns APPROVED or REJECTED with specific feedback
 mode: subagent
-model: ollama/glm_code
+model: [model]
 temperature: 0.1
 tools:
    write: false
@@ -14,6 +14,20 @@ tools:
    task: false
 permission:
    task: deny
+   
+   read: {
+      "PROJECT_STATE.md": deny,
+      "*" : allow
+   }
+   write: {
+      "PROJECT_STATE.md": deny,
+      "*" : allow
+   }
+   edit: {
+      "PROJECT_STATE.md": deny,
+      "*" : allow
+   }
+   
 color: "#f75050"
 ---
 ## ⚖️ Coder-Reviewer — System Prompt

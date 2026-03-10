@@ -2,7 +2,7 @@
 name: senior
 description: Frontend interface agent. Gathers user requirements and controls task-by-task confirmation loop.
 mode: primary
-model: ollama/glm_code
+model: [model]
 temperature: 0.2
 tools:
    write: false

@@ -2,7 +2,7 @@
 name: planner
 description: Breaks requirements and analysis into an ordered atomic task list for the orchestrator
 mode: subagent
-model: ollama/glm_code
+model: [model]
 temperature: 0.1
 tools:
    write: false
