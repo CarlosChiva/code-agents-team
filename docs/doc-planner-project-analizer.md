@@ -1,111 +1,93 @@
-## Planner (planner.md) and Project-Analizer (project-analizer.md)
-
+## Planner (planner.md) and Project‑Analyzer (project‑analyzer.md)
 <div align="center">
 
 ![Team Agent Planner](../images/planner_and_project-analizer/planner-project-analizer.png)
 
 </div>
 
+### Project‑Analyzer (project‑analyzer.md)
+**Description:** Technical analysis agent that performs a comprehensive evaluation of existing code and the surrounding environment.  
 
+**Main responsibilities:**
+- Technical x‑ray of the environment  
+- Project structure mapping  
+- Detection of technologies and configurations  
+- Reads key files to understand data flow  
+- Returns findings in a specific schema: Detected Technologies, Architecture, Critical Context, Risks  
+- Provides architecture and risk reports  
+- Operates in read‑only mode  
 
+#### Agent execution  
 
-
-### Project-Analyzer (project-analizer.md)
-
-**Descripción:** Agente de análisis técnico que realiza una evaluación completa del código existente y el entorno.
-
-**Responsabilidades principales:**
-- Radiografía técnica del entorno
-- Mapeo de estructura de proyecto
-- Detección de tecnologías y configuraciones
-- Lee archivos principales para entender el flujo de datos
-- Devuelve hallazgos en un esquema específico: Tecnologías Detectadas, Arquitectura, Contexto Crítico, Riesgos
-- Reportes de arquitectura y riesgos
-- Operación en modo solo lectura
-
-
-
-#### Ejecucion del agente
-
-##### Analisis del estado del repositorio
+##### Repository state analysis  
 
 <div align="center">
 
-![First prompt from manager to agent](../images/planner_and_project-analizer/initial_prompt.png)
-*Mediante el primer prompt recibido, buscará en el actual repositorio en busca de su estructura o si no existe codigo, creará un esquema de como debe ser el repo para albergar todas las funcionalidades requeridas*
+![Initial prompt from Manager to Agent](../images/planner_and_project-analizer/initial_prompt.png)
+*Using the first prompt received, the agent will search the current repository for its structure; if no code exists, it will create a blueprint of how the repo should be to accommodate all required functionalities.*
 
 </div>
 
-
-##### Reporte final del analisis
-
-<div align="center">
-
-![Agent output](../images/planner_and_project-analizer/risk_and_distribution_detected.png)
-*Reporte de riesgos identificados a la hora de desarrollar la funcionalidad*
-
-</div>
-
+##### Final analysis report  
 
 <div align="center">
 
-![Agent output](../images/planner_and_project-analizer/critic_context.png)
-*Contexto critico a tener en cuenta a la hora de crear la funcionalidad*
+![Risk and distribution detected](../images/planner_and_project-analizer/risk_and_distribution_detected.png)
+*Risk report identified during feature development*
 
 </div>
 
 <div align="center">
 
-![Agent output](../images/planner_and_project-analizer/arquitectura-propuesta.png)
-*Contexto critico a tener en cuenta a la hora de crear la funcionalidad*
+![Critical context](../images/planner_and_project-analizer/critic_context.png)
+*Critical context to consider when creating the feature*
 
 </div>
-
 
 <div align="center">
 
-![Agent output](../images/planner_and_project-analizer/tecnic-recomendations-project-analizer.png)
-*Recomendaciones tecnicas a tener en cuenta para el desarrollo de la funcionalidad*
+![Proposed architecture](../images/planner_and_project-analizer/arquitectura-propuesta.png)
+*Proposed architecture for the feature*
 
 </div>
 
+<div align="center">
 
+![Technical recommendations](../images/planner_and_project-analizer/tecnic-recomendations-project-analizer.png)
+*Technical recommendations for developing the feature*
 
+</div>
 
-
+---
 
 ### Planner (planner.md)
+**Description:** Software architect that transforms requirements and analysis into an executable roadmap.  
 
-**Descripción:** Arquitecto de software que transforma los requisitos y análisis en una hoja de ruta ejecutable.
+**Main responsibilities:**
+- Break down requirements into atomic tasks  
+- Create logically ordered lists  
+- Adhere to mandatory table formats  
 
-**Responsabilidades principales:**
-- Desglosar requisitos en tareas atómicas
-- Crear listas lógicamente ordenadas
-- Respeta formatos de tabla obligatorios
+**Key responsibilities:**
+- Decompose requirements into small atomic tasks  
+- Generate logically ordered task lists (Setup → Logic → Interface → Testing → Documentation)  
+- Assign tasks to appropriate agents  
+- Output tasks in a mandatory table format with specific columns  
 
+#### Agent execution  
 
-**Responsabilidades clave:**
-- Desglosa los requisitos en tareas atómicas y pequeñas
-- Crea listas de tareas lógicamente ordenadas (Configuración → Lógica → Interfaz → Pruebas → Documentación)
-- Asigna tareas a agentes apropiados. 
-- Salida de tareas en formato de tabla obligatorio con columnas específicas
-
-
-#### Ejecucion del agente
-
-##### Analisis de las especificaciones del os requerimientos alimentados con datos del project-analizer
+##### Analysis of the specification fed with data from the Project‑Analyzer  
 
 <div align="center">
 
-![First prompt from Nanager](../images/planner_and_project-analizer/first-prompt.png)
-*Recibe la instruccion para generar un plan de tareas atomicas en base a los requerimientos y el reporte de project-analizer*
+![First prompt from Manager](../images/planner_and_project-analizer/first-prompt.png)
+*Receives the instruction to generate a plan of atomic tasks based on the requirements and the Project‑Analyzer report*
 
 </div>
 
-
 <div align="center">
 
-![Agent Output](../images/planner_and_project-analizer/table_result.png)
-*Una vez verificado que se cumple las directrices de la tarea, genera un reporte co el resultado [Aprobado/Denegado]*
+![Table result](../images/planner_and_project-analizer/table_result.png)
+*Once verified that the task guidelines are met, it generates a report with the result [Approved / Denied]*
 
 </div>

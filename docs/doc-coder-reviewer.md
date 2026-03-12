@@ -1,35 +1,34 @@
-### Coder-Reviewer (coder-reviewer.md)
+### Coder‑Reviewer (coder-reviewer.md)
 
 <div align="center">
 
-![Team Agent Coder-reviewer](../images/coder-reviewer/coder-reviewer.png)
+![Team Agent Coder‑Reviewer](../images/coder-reviewer/coder-reviewer.png)
 
 </div>
 
+**Description:** The quality guardian whose verdict determines whether the Coder’s work is accepted or must be redone.  
 
-**Descripción:** El guardián de calidad cuyo veredicto decide si el trabajo del coder es aceptado o debe hacerse de nuevo.
+**Key responsibilities:**
+- Review the Coder’s output and return **APPROVED** or **REJECTED** with specific feedback.  
+- Verify: adherence to task requirements, code quality and conventions, security risks (injection, memory leaks, exposed variables), and robustness (error handling).  
+- Provide direct, technical feedback when rejecting to help the Coder correct issues.  
 
-**Responsabilidades clave:**
-- Revisa la salida del coder y devuelve APPROVED o REJECTED con retroalimentación específica
-- Verifica: cumplimiento con los requisitos de la tarea, calidad y convenciones de código, riesgos de seguridad (inyección, fugas de memoria, variables expuestas), robustez (manejo de errores)
-- Proporciona retroalimentación técnica y directa cuando se rechaza para ayudar al coder a corregir problemas
+### Task Execution Examples  
 
+#### First Interaction  
 
-
-### Ejemplos de Ejecución de tareas
-#### Primera interaccion
 <div align="center">
 
 ![First interaction](../images/coder-reviewer/first-prompt.png)
-*Recibe la instruccion de la tarea realizada mas la informacion del output del coder para mas contexto a verificar.*
+*Receives the completed task instruction along with the Coder’s output for contextual verification.*
 
 </div>
 
-#### Output
+#### Output  
 
 <div align="center">
 
 ![User confirmation](../images/coder-reviewer/report.png)
-*Una vez verificado que se cumple las directrices de la tarea, genera un reporte co el resultado [Aprobado/Denegado]*
+*Once it has verified compliance with the task guidelines, it generates a report with the result [APPROVED / REJECTED].*
 
 </div>

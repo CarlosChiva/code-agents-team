@@ -1,131 +1,131 @@
-# 📝 code-agents-team - Agente Configuración
+# 📝 code-agents-team - Agent Configuration
 
-Este repositorio contiene la configuración completa de un equipo de agentes especializados para la gestión automatizada de proyectos de desarrollo de software.
+This repository contains the full configuration of a team of specialized agents for the automated management of software‑development projects.
 
-## ¿Qué es este proyecto?
+## What is this project?
 
-code-agents-team es un sistema de agentes autónomos colaborativos diseñados para gestionar proyectos de desarrollo siguiendo un flujo de trabajo estructurado dentro de la herramienta OpenCode. Cada agente tiene un rol y responsabilidad específica, trabajando en secuencia para transformar requisitos de usuario en código funcional, manteniendo altos estándares de calidad y seguridad.
+`code-agents-team` is a collaborative system of autonomous agents designed to manage development projects following a structured workflow within the OpenCode tool. Each agent has a specific role and responsibility, working in sequence to transform user requirements into functional code while maintaining high standards of quality and security.
 
-## 🏢 Equipo de Agentes
+## 🏢 Agent Team
 
-Este sistema consta de 6 agentes especializados:
-
-
+This system consists of 6 specialized agents:
 
 <div align="center">
 
 ![Team Agent Configuration](images/team-image.png)
 
-
 </div>
 
+### 1. 🎯 Manager – Technical Project Manager
+The technical lead responsible for coordinating all system operations. It manages the project state via `PROJECT_STATE.md`, delegates tasks to the appropriate agents, and ensures the workflow follows the INIT → PLANNING → EXECUTION cycle.
 
-### 1. 🎯 Manager - Gestor Técnico del Proyecto
+[Manager Documentation](docs/doc-manager.md)
 
-El líder técnico responsable de coordinar todas las operaciones del sistema. Administra el estado del proyecto a través del archivo `PROJECT_STATE.md`, delega tareas a los agentes apropiados y garantiza que el flujo de trabajo siga el ciclo INIT → PLANNING → EXECUTION.
+### 2. ⚡ Coder – Technical Executor
+The execution arm that implements assigned tasks by writing or editing code files. It strictly follows existing coding styles, prioritizes corrections from the review agent, and reports all changes in detail.
 
-[Documentacion Manager](docs/doc-manager.md)
+[Coder Documentation](docs/doc-coder.md)
 
-### 2. ⚡ Coder - Ejecutor Técnico
+### 3. 🔍 Coder‑Reviewer – Code Quality Guardian
+The final quality filter, reviewing each implementation by the Coder agent to determine if it should be accepted or corrected. It provides specific technical feedback when the code does not meet standards of quality, security, robustness, and coding conventions.
 
-El brazo de ejecución que implementa las tareas asignadas mediante la escritura o edición de archivos de código. Cumple estrictamente con los estilos de código existentes, prioriza las correcciones del agente de revisión y reporta detalladamente todos los cambios realizados.
-[Documentacion Coder](docs/doc-coder.md)
+[Coder‑Reviewer Documentation](docs/doc-coder-reviewer.md)
 
-### 3. 🔍 Coder-Reviewer - Guardián de Calidad del Código
+### 4. 📋 Planner – Software Architect
+Transforms long, complex user requirements into a list of small, atomic, and logically ordered tasks. It uses structured tabular formats to organize execution from configuration to final documentation.
 
-El filtro final de calidad, revisando cada implementación del agente Coder para evaluar si debe ser aceptada o corregida. Proporciona retroalimentación técnica específica cuando el código no cumple con los estándares de calidad, seguridad, robustez y convenciones de código.
-[Documentacion Coder-Reviewer](docs/doc-coder-reviewer.md)
+[Planner Documentation](docs/doc-planner-project-analizer.md#planner-plannermd)
 
-### 4. 📋 Planner - Arquitecto de Software
+### 5. 🔬 Project‑Analyzer – Technical Environment Analyst
+Conducts a complete technical “x‑ray” of the existing environment and project structure. It maps files, detects used technologies, identifies architectures, and returns critical findings that serve as a basis for technical decision‑making.
 
-Convierte los requisitos largos y complejos del usuario en una lista de tareas pequeñas, atómicas y lógicamente ordenadas. Utiliza formatos tabulares estructurados para organizar la ejecución desde configuración hasta documentación final.
-[Documentacion Planner](docs/doc-planner-project-analizer.md#planner-plannermd)
+[Project‑Analyzer Documentation](docs/doc-planner-project-analizer.md#project-analyzer-project-analizermd)
 
-### 5. 🔬 Project-Analyzer - Analista Técnico del Entorno
+### 6. 👤 Leader – User‑System Interface
+The human‑technology bridge that gathers user requirements and manages task‑by‑task confirmations. It acts as an intermediary between user needs and technical execution, controlling workflow through clear confirmations.
 
-Realiza una radiografía técnica completa del entorno y estructura del proyecto existente. Mapea archivos, detecta tecnologías utilizadas, identifica arquitecturas y devuelve hallazgos críticos que sirven como base para la toma de decisiones técnicas.
-[Documentacion Project-Analyzer ](docs/doc-planner-project-analizer.md#project-analyzer-project-analizermd)
-
-### 6. 👤 Leader - Interfaz Usuario-Sistema
-
-El puente humano-tecnológico que recopila los requisitos del usuario y conduce las confirmaciones tarea por tarea. Actúa como intermediario entre las necesidades humanas de los usuarios y la ejecución técnica, controlando el flujo de trabajo mediante confirmaciones claras.
-[Documentacion Leader](docs/doc-leader.md)
+[Leader Documentation](docs/doc-leader.md)
 
 ---
 
-## 🚀 Instalación
+## 🚀 Installation
 
-Este proyecto proporciona la configuración lista para usar de los agentes. Solo necesitas copiar los archivos al directorio de configuración apropiado.
+This project provides a ready‑to‑use configuration for the agents. Simply copy the files to the appropriate configuration directory.
 
-### Pasos de instalación:
+### Installation Steps
 
-1. **Copiar archivos de configuración:**
-```bash
-cp -r agents/* ~/.config/opencode/agents/
-```
+1. **Copy configuration files:**
+   ```bash
+   cp -r agents/* ~/.config/opencode/agents/
+   ```
 
-2. **Configurar proveedores y modelos:**
-Cada archivo de configuración debe ser editado para especificar el `provider` y el `model` que utilizarán. El formato es el siguiente:
+2. **Configure providers and models:**
+   Each configuration file must be edited to specify the `provider` and `model` that will be used. The format is as follows:
+   ```yaml
+   # Example agent configuration
+   name:  # model name
+   description: # model description
+   mode: primary/subagent
+   # Provider configuration (TO EDIT)
+   model: openai/gpt-4  # Change according to your provider
+   temperature: 0.1 # adjust to be more strict or creative as needed
+   system_prompt: |
+     Your role is to manage the project state...
+   ```
 
-```yaml
-# Ejemplo de configuración de agente
-name:  # nombre del modelo
-description: # descripcion del modelo
-mode: primary/subagent
-# Configuración del proveedor (A EDITAR)
-model: openai/gpt-4  # Cambiar según tu proveedor
-temperature: 0.1 # cambiar a algun valor segun se pida ser mas estricto o creativo  
-system_prompt: |
-  Tu rol es administrar el estado del proyecto...
-  
+### Destination Paths
 
-```
+| Operating System | Destination Path |
+|------------------|-------------------|
+| Linux/macOS      | `~/.config/opencode/agents/` |
 
-### Rutas de destino:
-
-| Sistema Operativo | Ruta Destino |
-|------------------|--------------|
-| Linux/macOS | `~/.config/opencode/agents/` |
-
-⚠️ **Importante:** No olvides editar cada archivo para configurar correctamente los valores de `provider` y `model` antes de usar los agentes.
+⚠️ **Important:** Don’t forget to edit each file to correctly configure the `provider` and `model` values before using the agents.
 
 ---
 
-## 📂 Estructura del Repositorio
+## 📂 Repository Structure
+```
+```
 
 ```
 code-agents-team/
-├── agents/                    # Configuración de agentes
+├── agents/                    
 │   ├── orchestrator.md
 │   ├── coder.md
 │   ├── coder-reviewer.md
 │   ├── planner.md
 │   ├── project-analizer.md
 │   └── senior.md
-├── images/                     # Recursos visuales
+├── images/                    
 │   └── ...
-├── docs/        # Documentacion de cada agente
+├── docs/        
 │   └── ...
-└── README.md                   # Documentación
+└── README.md                   
 ```
 
-## 🔗 Flujo de Trabajo
+## 🔗 Workflow
 
 El sistema funciona siguiendo un ciclo continuo:
 
 ```
-Requisitos Usuario
+User Requirements
         ↓
 Senior (Interfaz) ← Consulta confirmación
         ↓
-Orchestrator → Planner (Desglose)
+Orchestrator → Project-analizer (First analisys from repo)
         ↓
-Coder (Implementación)
+Orchestrator → Planner (Planning TODO List) 
         ↓
-Coder-Reviewer (Revisión)
+Coder (Implementation)
         ↓
-[Re-encoding si es necesario]
+Orchestrator →  Send the report and task to coder-reviewer
         ↓
-Reporte de la tarea completada ✓
+Coder-Reviewer (Verify task completed sucessfully)
+        ↓
+Orchestrator →  Chose depends on the output of coder-reviewer if task is completed o return the report from coder-reviewer to coder.
+        ↓
+Orchestrator →  Once coder-reviewer approved task, send report to user
+        ↓
+Report to user with task completed ✓
 ```
 

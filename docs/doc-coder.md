@@ -1,4 +1,3 @@
-
 ### Coder (coder.md)
 
 <div align="center">
@@ -7,29 +6,30 @@
 
 </div>
 
-**Descripción:** El brazo de ejecución que implementa las tareas asignadas escribiendo o editando archivos de código siguiendo el estilo de código existente.
+**Description:** The execution arm that implements assigned tasks by writing or editing code files while adhering to the existing coding style.  
 
-**Responsabilidades clave:**
-- Analiza archivos antes de escribir código
-- Escribe código limpio y funcional
-- Prioriza corregir feedback específico del coder-reviewer cuando se proporciona
-- Informa sobre los cambios realizados y archivos modificados al completar la tarea.
+**Key responsibilities:**
+- Analyze files before writing code.  
+- Produce clean, functional code.  
+- Prioritize correcting specific feedback from the Coder‑Reviewer when provided.  
+- Report the changes made and the modified files upon task completion.  
 
+### Task Execution Examples  
 
-### Ejemplos de Ejecución de tareas
-#### Primera interaccion
+#### First Interaction  
+
 <div align="center">
 
 ![First interaction](../images/coder/first-prompt.png)
-*Recibe la instruccion de la tarea a realizar con el contexto necesario por parte del manager*
+*Receives the task instruction along with the necessary context from the Manager.*
 
 </div>
 
-#### Output
+#### Output  
 
 <div align="center">
 
 ![User confirmation](../images/coder/report.png)
-*Una vez realizada la tarea devuelve al manager un reporte con los archivos creados y/o modificacion de archivos.*
+*Once the task is finished, it returns a report to the Manager detailing created and/or modified files.*
 
 </div>

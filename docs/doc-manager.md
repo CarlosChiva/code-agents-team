@@ -6,77 +6,75 @@
 
 </div>
 
-**Descripción:** Líder técnico que gestiona el estado del proyecto y delega tareas. 
+**Description:** Technical leader who manages the project state and delegates tasks.  
 
+**Main responsibilities:**
+- Manage `PROJECT_STATE.md` as the single database containing user requirements, project architecture, and tasks required to implement those requirements.  
+- Coordinate calls to the various sub‑agents to plan tasks, inspect the project structure, schedule work, and verify completed tasks.  
+- Ensure a strict sequential workflow.  
+- Maintain task status (PENDING → DONE).  
+- Return a report of the completed task to the user.  
 
-**Responsabilidades principales:**
-- Administrar `PROJECT_STATE.md` como base de datos única que contiene los requerimientos del usuario, arquitectura del proyecto y las tareas a realizar para la implementacion de requerimientos
-- Coordinar llamadas a los distintos subagentes para planificar las tareas, ver la estructura del proyecto, programar y verificacion de la tarea hecha.
-- Garantiza el flujo de trabajo secuencial estricto
-- Mantiene el estado de las tareas (PENDING → DONE)
-- Devuelve un reporte con la tarea finalizada al usuario.
+### Task Execution Examples  
 
-### Ejemplos de Ejecución de tareas
-#### Primera interaccion
+#### First Interaction  
+
 <div align="center">
 
 ![First interaction](../images/manager/first-step-manager.png)
-*En la primera interaccion siempre buscara el fichero PROJECT_STATE.md y si no existe lo creará*
+*During the first interaction the manager will always look for the `PROJECT_STATE.md` file and create it if it does not exist.*
 
 </div>
 
-##### Estructura del fichero PROJECT_STATE.md
+##### Structure of the `PROJECT_STATE.md` file  
 
 <div align="center">
 
 ![First interaction](../images/manager/structure-project_status1.png)
-*Comenzará el fichero describiendo los requerimientos del usuario*
+*The file begins by describing the user requirements.*
 
 </div>
 
 <div align="center">
 
 ![First interaction](../images/manager/structure-project_status2.png)
-*Continua con un analisis sobre el proyecto actual o el que se va a crear en base a los requerimientos del usuario*
+*It continues with an analysis of the current project—or the one to be created—based on those requirements.*
 
 </div>
 
 <div align="center">
 
 ![First interaction](../images/manager/structure-project_status3.png)
-*Genera un Estado actual generico y creará un todolist con las tareas atomicas para llevar a cabo los requerimientos del usuario*
+*A generic current state is generated, and a to‑do list with atomic tasks is created to fulfill the user requirements.*
 
 </div>
 
-
-##### Flow de ejecución
-
-
+##### Execution Flow  
 
 <div align="center">
 
 ![First task](../images/manager/first_step_tasks.png)
-*Su primera ejecucion una vez tiene PROJECT_STATE visible para ver que tarea se comienza a hacer y pide confirmacion del usuario*
+*Upon its first execution, once `PROJECT_STATE` is visible to identify the task to start, it requests user confirmation.*
 
 </div>
 
 <div align="center">
 
 ![User confirmation](../images/manager/recibing_user_confirmation.png)
-*Una vez recibe la confirmacion del usuario comienza a llamar al agente coder para comenzar la tarea*
+*After receiving confirmation, it calls the Coder agent to begin the task.*
 
 </div>
 
 <div align="center">
 
 ![User confirmation](../images/manager/pass_result_coder_to_reviewer.png)
-*Una vez recibe la confirmacion del usuario comienza a llamar al agente coder para comenzar la tarea*
+*Once the Coder agent completes the task, the result is passed to the Reviewer agent for validation.*
 
 </div>
 
 <div align="center">
 
 ![User confirmation](../images/manager/final_report.png)
-*Una vez recibe la confirmacion del usuario comienza a llamar al agente coder para comenzar la tarea*
+*After the Reviewer confirms acceptance, the manager returns a final report to the user.*
 
 </div>
