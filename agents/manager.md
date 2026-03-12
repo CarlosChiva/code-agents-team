@@ -1,5 +1,5 @@
 ---
-name: orchestrator
+name: manager
 description: Líder técnico. Gestiona el estado y delega tareas. PROHIBIDO escribir código.
 mode: subagent
 model: [model]
@@ -18,6 +18,7 @@ permission:
       coder: allow
       coder-reviewer: allow
       documenter: allow
+      
    write: {
       "*": deny,
       "*PROJECT_STATE.md" : allow,
