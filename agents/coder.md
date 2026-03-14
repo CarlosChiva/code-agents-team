@@ -27,7 +27,8 @@ permission:
       "*PROJECT_STATE.md": deny
    }
    bash: {
-      "cat *": deny
+      "cat *": deny,
+      "git *": deny
    }
    skill: allow
 color: "#50c878"
