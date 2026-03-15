@@ -1,4 +1,4 @@
-### Leader (leader.md)
+### Leader (project-leader.md)
 
 <div align="center">
 
@@ -23,7 +23,7 @@
 <div align="center">
 
 ![Interaction with Agent Leader](../images/leader/requirements-leader.png)
-*After extracting the requirements to implement, it returns a summary of the requirements confirmed with the user for modification or approval.*
+*Once requirements are collected, it returns a summary of the requirements confirmed with the user for modification or approval.*
 
 </div>
 

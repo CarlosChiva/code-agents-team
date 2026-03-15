@@ -41,7 +41,7 @@ Conducts a complete technical “x‑ray” of the existing environment and proj
 
 [Project‑Analyzer Documentation](docs/doc-planner-project-analizer.md#project-analyzer-project-analizermd)
 
-### 6. 👤 Leader – User‑System Interface
+### 6. 👤 Project-Leader – User‑System Interface
 The human‑technology bridge that gathers user requirements and manages task‑by‑task confirmations. It acts as an intermediary between user needs and technical execution, controlling workflow through clear confirmations.
 
 [Leader Documentation](docs/doc-leader.md)
@@ -56,6 +56,8 @@ This project provides a ready‑to‑use configuration for the agents. Simply co
 
 1. **Copy configuration files:**
    ```bash
+   git clone https://github.com/CarlosChiva/code-agents-team.git
+   cd code-agents-team/
    cp -r agents/* ~/.config/opencode/agents/
    ```
 
@@ -90,12 +92,12 @@ This project provides a ready‑to‑use configuration for the agents. Simply co
 ```
 code-agents-team/
 ├── agents/                    
-│   ├── orchestrator.md
+│   ├── manager.md
 │   ├── coder.md
 │   ├── coder-reviewer.md
 │   ├── planner.md
 │   ├── project-analizer.md
-│   └── senior.md
+│   └── project-leader.md
 ├── images/                    
 │   └── ...
 ├── docs/        
@@ -105,27 +107,41 @@ code-agents-team/
 
 ## 🔗 Workflow
 
-El sistema funciona siguiendo un ciclo continuo:
+This system works based 2 stages:
 
 ```
+# First interaction with team
+
 User Requirements
         ↓
-Senior (Interfaz) ← Consulta confirmación
+Project-leader (Interfaz) ← Collect user requirements
         ↓
-Orchestrator → Project-analizer (First analisys from repo)
+Manager → Project-analizer (First analisys from repo)
         ↓
-Orchestrator → Planner (Planning TODO List) 
+Manager → Planner (Planning TODO List) 
+        ↓
+Project-leader (Interfaz) ← Project_State created. Waiting user confirmation to start.
+
+
+# Once Project_State is created.
+
+User Confirmation
+        ↓
+Project-leader (Interfaz) ← ask yo user for continue the tasks.
+        ↓
+Manager → read project state to send to coder the first pending task.
         ↓
 Coder (Implementation)
         ↓
-Orchestrator →  Send the report and task to coder-reviewer
+Manager →  Send the report and task to coder-reviewer
         ↓
 Coder-Reviewer (Verify task completed sucessfully)
         ↓
-Orchestrator →  Chose depends on the output of coder-reviewer if task is completed o return the report from coder-reviewer to coder.
+Manager →  Chose depends on the output of coder-reviewer if task is completed o return the report from coder-reviewer to coder.
         ↓
-Orchestrator →  Once coder-reviewer approved task, send report to user
+Manager →  Once coder-reviewer approved task, send report to Project leader
         ↓
-Report to user with task completed ✓
+Project-leader → Show the report of task to user and ask if continue with next task.
+
 ```
 

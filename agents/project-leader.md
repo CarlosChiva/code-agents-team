@@ -1,5 +1,5 @@
 ---
-name: leader
+name: project-leader
 description: Frontend interface agent. Gathers user requirements and controls task-by-task confirmation loop.
 mode: primary
 model: [model]
