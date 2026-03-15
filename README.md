@@ -86,8 +86,6 @@ This project provides a ready‑to‑use configuration for the agents. Simply co
 ---
 
 ## 📂 Repository Structure
-```
-```
 
 ```
 code-agents-team/
