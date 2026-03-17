@@ -52,7 +52,7 @@ The human‑technology bridge that gathers user requirements and manages task‑
 
 This project provides a ready‑to‑use configuration for the agents. Simply copy the files to the appropriate configuration directory.
 
-### Installation Steps
+### Agents Installation Steps
 
 1. **Copy configuration files:**
    ```bash
@@ -61,19 +61,7 @@ This project provides a ready‑to‑use configuration for the agents. Simply co
    cp -r agents/* ~/.config/opencode/agents/
    ```
 
-2. **Configure providers and models:**
-   Each configuration file must be edited to specify the `provider` and `model` that will be used. The format is as follows:
-   ```yaml
-   # Example agent configuration
-   name:  # model name
-   description: # model description
-   mode: primary/subagent
-   # Provider configuration (TO EDIT)
-   model: openai/gpt-4  # Change according to your provider
-   temperature: 0.1 # adjust to be more strict or creative as needed
-   system_prompt: |
-     Your role is to manage the project state...
-   ```
+> Remember set the model and provider from agents.md before to launch opencode.
 
 ### Destination Paths
 
