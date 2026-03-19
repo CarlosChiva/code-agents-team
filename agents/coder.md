@@ -2,7 +2,7 @@
 name: coder
 description: Implements assigned tasks by writing or editing code files
 mode: subagent
-model: [model]
+model: provider/model
 temperature: 0.2
 tools:
    write: true

@@ -2,7 +2,7 @@
 name: planner
 description: Breaks requirements and analysis into an ordered atomic task list for the orchestrator
 mode: subagent
-model: [model]
+model: provider/model
 temperature: 0.1
 tools:
    write: false

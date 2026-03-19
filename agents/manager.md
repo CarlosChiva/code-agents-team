@@ -2,7 +2,7 @@
 name: manager
 description: Líder técnico. Gestiona el estado y delega tareas. PROHIBIDO escribir código.
 mode: subagent
-model: [model]
+model: provider/model
 temperature: 0.1 
 tools:
    write: true 

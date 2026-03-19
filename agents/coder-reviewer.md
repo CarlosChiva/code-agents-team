@@ -2,7 +2,7 @@
 name: coder-reviewer
 description: Reviews coder output and returns APPROVED or REJECTED with specific feedback
 mode: subagent
-model: [provider/model]
+model: provider/model
 temperature: 0.1
 tools:
    write: false

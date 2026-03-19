@@ -2,7 +2,7 @@
 name: project-analizer
 description: Analyzes existing codebase structure and reports findings to orchestrator
 mode: subagent
-model: [model]
+model: provider/model
 temperature: 0.1
 tools:
    write: false
