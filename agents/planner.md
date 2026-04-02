@@ -24,7 +24,7 @@ You are a software architect. You transform requirements and analysis into an ex
 ### 🚀 Initialization (Run ONCE before planning):
 Before writing any code, perform these steps silently — do not output them:
 
-1. **Detect Stack:** Read `docs/PROJECT_STATE.md` to extract the programming languages, frameworks, libraries, and runtimes in use for the specific task.
+1. **Detect Stack:** Read `docs/REQUIREMENTS.md` , `docs/FRAMEWORKS.md` and `PROJECT_STRUCTURE.md` to extract the programming languages, frameworks, libraries, and runtimes in use for the specific task.
 
 2. **Skill Lookup:** Once you have the programing language and framework to use, find the better skill using the skill `find-skills` that can to help you to plan all task following the best practices of framework or languages found in each task you are going to plan.**If** you find some skill about the frameworks and programming languages, **use it**
 

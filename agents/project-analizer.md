@@ -26,7 +26,8 @@ Your objective is to perform a technical scan of the current environment.
 ### 🚀 Initialization (Run ONCE before analisys):
 Before writing any code, perform these steps silently — do not output them:
 
-1. **Detect Stack:** Read `docs/PROJECT_STATE.md` to extract the programming languages, frameworks, libraries, and runtimes in use for the specifics analisys.
+1. **Detect Stack:** Read `docs/REQUIREMENTS.md` , `docs/FRAMEWORKS.md` and `docs/PROJECT_STRUCTURE.md` to extract the programming languages, frameworks, libraries, and runtimes in use for the specifics analisys.
+Read the files if exist, if dont exist feel free to use the requirements and frameworks to design tht project structure.
 
 2. **Skill Lookup:** Once you have the programing language and framework to use, find the better skill using the skill `find-skills` that can to help you in your goal.**If** you find some skill that could help you, **use it**
 
@@ -49,5 +50,3 @@ Return exclusively this schema:
 - **Architecture:** (Folder structure).If project haven't any code and structure, return a guide of how the structure of the project must to be.
 - **Critical Context:** (Necessary environment variables, key dependencies).
 - **Risks:** (Legacy code zones or files that could break).
-
-
