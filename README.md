@@ -46,6 +46,11 @@ The human‑technology bridge that gathers user requirements and manages task‑
 
 [Leader Documentation](docs/doc-leader.md)
 
+### 7. 👤 Coder-fixer
+Specific orquestator agents to simple tasks recived by user. It acts comminicating the task with coder and coder-reviewer subagents.
+
+[Coder-fixer Documentation](docs/doc-coder-fixer.md)
+
 ---
 
 ## 🚀 Installation
@@ -83,6 +88,7 @@ code-agents-team/
 │   ├── coder-reviewer.md
 │   ├── planner.md
 │   ├── project-analizer.md
+│   ├── coder-fixer.md
 │   └── project-leader.md
 ├── images/                    
 │   └── ...
