@@ -58,21 +58,23 @@ Specific orquestator agents to simple tasks recived by user. It acts comminicati
 This project provides a ready‑to‑use configuration for the agents. Simply copy the files to the appropriate configuration directory.
 
 ### Agents Installation Steps
-1. First of all, knowing which agents are going to installed for, claude code or opencode.
 
-2. **Copy configuration files:**
+1. **Copy configuration files:**
    ```bash
    git clone https://github.com/CarlosChiva/code-agents-team.git
    cd code-agents-team/
    ```
+2. Ask about which code cli are going to be installed agents, claude code or opencode.
+Depends on the code cli where agents are going to be installed, follow the step to install agents in the code cli that user want to install them.
 
 3. **If agents are going installed into claude code:**
    ```bash
-   cp -r agents/* ~/.claudeg/agents/
+   cp -r agents/claude-agents/* ~/.claude/agents/
    ```
+
 4. **If agents are going installed into claude code:**
    ```bash
-   cp -r agents/* ~/.config/opencode/agents/
+   cp -r agents/opencode-agents/* ~/.config/opencode/agents/
    ```
 
 > Remember set the model and provider from agents.md before to launch opencode.
@@ -92,14 +94,29 @@ This project provides a ready‑to‑use configuration for the agents. Simply co
 
 ```
 code-agents-team/
-├── agents/                    
-│   ├── manager.md
-│   ├── coder.md
-│   ├── coder-reviewer.md
-│   ├── planner.md
-│   ├── project-analizer.md
-│   ├── coder-fixer.md
-│   └── project-leader.md
+├── agents/
+│   ├── claude-agents/
+│   │   ├── manager.md
+│   │   ├── coder.md
+│   │   ├── coder-reviewer.md
+│   │   ├── coder-proposal.md
+│   │   ├── coder-fixer.md
+│   │   ├── planner.md
+│   │   ├── project-analizer.md
+│   │   ├── project-leader.md
+│   │   ├── child-documenter.md
+│   │   └── documenter.md
+│   └── opencode-agents/
+│       ├── manager.md
+│       ├── coder.md
+│       ├── coder-reviewer.md
+│       ├── coder-proposal.md
+│       ├── coder-fixer.md
+│       ├── planner.md
+│       ├── project-analizer.md
+│       ├── project-leader.md
+│       ├── child-documenter.md
+│       └── documenter.md
 ├── images/                    
 │   └── ...
 ├── docs/        
