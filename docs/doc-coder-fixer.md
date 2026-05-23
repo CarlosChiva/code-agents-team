@@ -36,63 +36,44 @@
 
 #### 2. Technical Proposal
 
-<div align="center">
-
-![Technical proposal](../images/coder-fixer/proposal.png)
-*The task is sent to `coder-proposal` which generates a technical proposal report.*
-
-</div>
+The task is sent to `coder-proposal` which generates a technical proposal report.*
 
 ##### Present Proposal to User
 
 <div align="center">
 
-![User approval](../images/coder-fixer/user-approval.png)
+![User approval](../images/coder-fixer/code-proposal1.png)
+![User approval](../images/coder-fixer/code-proposal2.png)
 *The proposal summary is presented to the user and confirmation is awaited before proceeding.*
 
 </div>
 
 #### 3. Implementation
 
-<div align="center">
-
-![Implementation](../images/coder-fixer/implementation.png)
-*The task + approved proposal is sent to `coder` for implementation.*
-
-</div>
+*The task + approved proposal is sent to `coder` for implementation loop.*
 
 #### 4. Review Loop
 
 <div align="center">
 
-![Review process](../images/coder-fixer/review-loop.png)
+![Review process](../images/coder-fixer/loop.png)
 *The coder's delivery report is sent to `coder-reviewer` for verification.*
 
 </div>
 
 ##### Rejection Handling
 
-<div align="center">
-
-![Rejection loop](../images/coder-fixer/rejection-handling.png)
 *If `RESULT: REJECTED ❌`, the reviewer's feedback is sent back to `coder` for fixes, then re-evaluated. This repeats until approved.*
 
-</div>
 
-#### 5. Documentation
-
-<div align="center">
-
-![Documentation](../images/coder-fixer/documentation.png)
 *Once approved (`RESULT: APPROVED ✅`), `child-documenter` is invoked in `documentar-carpeta` mode for each modified file's parent folder, then in `indexar-modulo` mode for each generated `.md` file.*
 
-</div>
 
-#### 6. Final Report
+#### 5. Final Report
 
 <div align="center">
 
-![Final report](../images/coder-fixer/final-report.png)
+![Final report](../images/coder-fixer/document-and-final-report.png)
 *A summary report is returned to the user.*
 
 </div>
