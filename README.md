@@ -97,7 +97,7 @@ code-agents-team/
 └── README.md                   
 ```
 
-## 🔗 Workflow
+## 🔗 Main Workflow using Project-Leader
 
 This system works based 2 stages:
 
@@ -137,3 +137,18 @@ Project-leader → Show the report of task to user and ask if continue with next
 
 ```
 
+## 🔗 Workflow using Coder-fixer
+
+```
+
+User ask about changes about code or ask about project 
+        ↓
+Coder-fixer ← Search into repository (or he can to use mcp to search enough context to user task)
+        ↓
+coder →  Recive the task from coder-fixer and make the task
+        ↓
+Coder-fixer →  Chose depends on the output of coder-reviewer if task is completed o return the report from coder-reviewer to coder.
+        ↓
+Manager →  Once coder-reviewer approved task, return a report to user
+
+```
