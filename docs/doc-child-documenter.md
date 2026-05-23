@@ -2,6 +2,8 @@
 
 <div align="center">
 
+![Documenter](../images/documenter/documenter.png)
+
 </div>
 
 **Description:** Specialized agent that reads source code and generates hierarchical technical documentation. Operates in three modes directed by the Documenter (main orchestrator): document-folder, index-module, and close-index.

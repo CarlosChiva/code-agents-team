@@ -2,6 +2,8 @@
 
 <div align="center">
 
+![Coder proposal](../images/coder-proposal/coder-proposal.png)
+
 </div>
 
 **Description:** Specialized agent that receives a code modification task and generates a **detailed technical proposal** before any line is written. Its value lies in precise prior analysis and clear reporting. It does not execute changes: it proposes, explains, and locates.
