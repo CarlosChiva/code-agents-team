@@ -174,6 +174,8 @@ Manager →  Chose depends on the output of coder-reviewer if task is completed 
         ↓
 Manager →  Once coder-reviewer approved task, send report to child-documenter to update documentation file affected by chances made in task implementation.
         ↓
+Child-documenter →  Recives report about changes made in code and update or create the documentation into /docs/documentation folder.
+        ↓
 Manager →  Once documentation is updated, send report to Project leader
         ↓
 Project-leader → Show the report of task to user and ask if continue with next task.
