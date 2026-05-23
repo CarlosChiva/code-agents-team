@@ -8,7 +8,7 @@ This repository contains the full configuration of a team of specialized agents 
 
 ## 🏢 Agent Team
 
-This system consists of 6 specialized agents:
+This system consists of 9 specialized agents:
 
 <div align="center">
 
@@ -46,10 +46,20 @@ The human‑technology bridge that gathers user requirements and manages task‑
 
 [Leader Documentation](docs/doc-leader.md)
 
-### 7. 👤 Coder-fixer
-Specific orquestator agents to simple tasks recived by user. It acts comminicating the task with coder and coder-reviewer subagents.
+### 7. 🔧 Coder‑fixer
+Specific orchestrator agent that receives coding tasks from the user and coordinates their execution using sub-agents: `coder-proposal`, `coder`, `coder-reviewer` and `child-documenter`. It never writes code directly, only delegates and reports.
 
 [Coder-fixer Documentation](docs/doc-coder-fixer.md)
+
+### 8. 📋 Coder‑Proposal – Technical Proposal Generator
+Analyzes code modification tasks and generates a detailed technical proposal before any line is written. It searches documentation, reads source files, finds relevant skills, and produces a structured proposal report with proposed changes, implementation order, and risks. Never executes changes, only proposes.
+
+[Coder-Proposal Documentation](docs/doc-coder-proposal.md)
+
+### 9. 📝 Child‑Documenter – Technical Documentation Generator
+Specialized agent that reads source code and generates hierarchical technical documentation. Operates in three modes: document-folder (generates `.md` docs replicating repository structure), index-module (adds documentation to index), and close-index (generates quick-reference guide).
+
+[Child-Documenter Documentation](docs/doc-child-documenter.md)
 
 ---
 
