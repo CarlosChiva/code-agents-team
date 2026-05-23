@@ -2,10 +2,9 @@
 name: coder-reviewer
 description: Reviews coder output and returns APPROVED or REJECTED with specific feedback
 mode: subagent
-model: provider/model
+model: ollama/qwen3.6-dense
 temperature: 0.1
 tools:
-   write: false
    edit: false
    bash: true
    read: true
@@ -16,7 +15,6 @@ tools:
 permission:
    task: deny
    read: allow
-   write: deny
    edit: deny
    bash: {
       "cat *": deny,

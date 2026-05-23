@@ -2,10 +2,9 @@
 name: planner
 description: Breaks requirements and analysis into an ordered atomic task list for the orchestrator
 mode: subagent
-model: provider/model
+model: ollama/qwen3.6-dense
 temperature: 0.1
 tools:
-   write: false
    edit: false
    bash: true
    read: true

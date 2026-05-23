@@ -2,10 +2,9 @@
 name: coder
 description: Implements assigned tasks by writing or editing code files
 mode: subagent
-model: provider/model
-temperature: 0.2
+model: ollama/qwen3.6-dense
+temperature: 0.1
 tools:
-   write: true
    edit: true
    bash: true
    read: true
@@ -15,10 +14,6 @@ tools:
    skill: true
 permission:
    task: deny
-   write: {
-      "*" : allow,
-      "*PROJECT_STATE.md": deny
-   }
    read: {
       "*" : allow
    }

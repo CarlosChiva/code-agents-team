@@ -2,10 +2,9 @@
 name: project-leader
 description: Frontend interface agent. Gathers user requirements and controls task-by-task confirmation loop.
 mode: primary
-model: provider/model
-temperature: 0.2
+model: ollama/qwen3.6-dense
+temperature: 0.1
 tools:
-   write: false
    edit: false
    bash: false
    read: false

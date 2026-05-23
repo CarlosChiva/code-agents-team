@@ -2,10 +2,9 @@
 name: manager
 description: Líder técnico. Gestiona el estado y delega tareas. PROHIBIDO escribir código.
 mode: subagent
-model: provider/model
-temperature: 0.1 
+model: ollama/qwen3.6-dense
+temperature: 0.1
 tools:
-   write: true 
    edit: true  
    bash: false
    read: true
@@ -19,13 +18,7 @@ permission:
       coder: allow
       coder-reviewer: allow
       documenter: allow
-   write: {
-      "*": deny,
-      "*PROJECT_STATE.md" : allow,
-      "*REQUIREMENTS.md" : allow,
-      "*PROJECT_STRUCTURE.md": allow,
-      "*FRAMEWORKS.md": allow
-   }
+
    edit: {
 
       "*": deny,

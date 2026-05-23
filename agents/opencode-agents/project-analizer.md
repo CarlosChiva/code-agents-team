@@ -2,10 +2,9 @@
 name: project-analizer
 description: Analyzes existing codebase structure and reports findings to orchestrator
 mode: subagent
-model: provider/model
+model: ollama/qwen3.6-dense
 temperature: 0.1
 tools:
-   write: false
    edit: false
    bash: true
    read: true
@@ -15,7 +14,6 @@ tools:
    skill: true
 permission:
    task: deny
-   write: deny
    edit: deny
    skill: 
       "find-skills": allow
