@@ -9,11 +9,16 @@
 **Description:** Technical leader who manages the project state and delegates tasks.  
 
 **Main responsibilities:**
-- Manage `PROJECT_STATE.md` as the single database containing user requirements, project architecture, and tasks required to implement those requirements.  
-- Coordinate calls to the various sub‑agents to plan tasks, inspect the project structure, schedule work, and verify completed tasks.  
-- Ensure a strict sequential workflow.  
-- Maintain task status (PENDING → DONE).  
-- Return a report of the completed task to the user.  
+- Manage four MD files in `docs/`:
+  - `REQUIREMENTS.md` — user requirements from project-leader
+  - `FRAMEWORKS.md` — technologies in use from project-analizer
+  - `PROJECT_STRUCTURE.md` — current or target structure from project-analizer
+  - `PROJECT_STATE.md` — todo list from planner
+- Coordinate calls to sub-agents: project-analizer, planner, coder-proposal, coder, coder-reviewer, child-documenter.
+- Follow a strict state machine: **INIT → PLANNING → EXECUTION**.
+- In EXECUTION: send task to `coder-proposal` first, then pass proposal to `coder`, then to `coder-reviewer`, and finally to `child-documenter` upon approval.
+- Maintain task status (PENDING → DONE).  
+- Never read source code or write code.
 
 ### Task Execution Examples  
 

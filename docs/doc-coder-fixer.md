@@ -1,4 +1,4 @@
-### Coder‑fixer (coder-reviewer.md)
+### Coder‑fixer (coder-fixer.md)
 
 <div align="center">
 
