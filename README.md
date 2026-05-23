@@ -58,11 +58,20 @@ Specific orquestator agents to simple tasks recived by user. It acts comminicati
 This project provides a ready‑to‑use configuration for the agents. Simply copy the files to the appropriate configuration directory.
 
 ### Agents Installation Steps
+1. First of all, knowing which agents are going to installed for, claude code or opencode.
 
-1. **Copy configuration files:**
+2. **Copy configuration files:**
    ```bash
    git clone https://github.com/CarlosChiva/code-agents-team.git
    cd code-agents-team/
+   ```
+
+3. **If agents are going installed into claude code:**
+   ```bash
+   cp -r agents/* ~/.claudeg/agents/
+   ```
+4. **If agents are going installed into claude code:**
+   ```bash
    cp -r agents/* ~/.config/opencode/agents/
    ```
 
@@ -70,9 +79,10 @@ This project provides a ready‑to‑use configuration for the agents. Simply co
 
 ### Destination Paths
 
-| Operating System | Destination Path |
-|------------------|-------------------|
-| Linux/macOS      | `~/.config/opencode/agents/` |
+| Operating System | Destination Path | Type of code cli |
+|------------------|-------------------|-------------------|
+| Linux/macOS      | `~/.config/opencode/agents/` | Opencode |
+| Linux/macOS      | `~/.claude/agents/` | Claude code |
 
 ⚠️ **Important:** Don’t forget to edit each file to correctly configure the `provider` and `model` values before using the agents.
 
@@ -123,6 +133,10 @@ Project-leader (Interfaz) ← ask yo user for continue the tasks.
         ↓
 Manager → read project state to send to coder the first pending task.
         ↓
+Coder-proposal → Recive task , read all dependecies and files to know about context to make the task and return a proposal report to implement task.
+        ↓
+Manager → Recive proposal report and send it to coder.
+        ↓
 Coder (Implementation)
         ↓
 Manager →  Send the report and task to coder-reviewer
@@ -131,7 +145,9 @@ Coder-Reviewer (Verify task completed sucessfully)
         ↓
 Manager →  Chose depends on the output of coder-reviewer if task is completed o return the report from coder-reviewer to coder.
         ↓
-Manager →  Once coder-reviewer approved task, send report to Project leader
+Manager →  Once coder-reviewer approved task, send report to child-documenter to update documentation file affected by chances made in task implementation.
+        ↓
+Manager →  Once documentation is updated, send report to Project leader
         ↓
 Project-leader → Show the report of task to user and ask if continue with next task.
 
@@ -143,12 +159,20 @@ Project-leader → Show the report of task to user and ask if continue with next
 
 User ask about changes about code or ask about project 
         ↓
-Coder-fixer ← Search into repository (or he can to use mcp to search enough context to user task)
+Coder-fixer ← Recives the specifications from user to make a task and send it to coder-proposal
+        ↓
+Coder-proposal ← Search into repository (or he can to use mcp to search enough context to user task)
+        ↓
+Coder-fixer ← Recives the report from coder proposal and show it to user to make validate for user. Once is validated by user, the report is sent to coder.
         ↓
 coder →  Recive the task from coder-fixer and make the task
         ↓
 Coder-fixer →  Chose depends on the output of coder-reviewer if task is completed o return the report from coder-reviewer to coder.
         ↓
-Manager →  Once coder-reviewer approved task, return a report to user
+Manager →  Once coder-reviewer approved task, send the changes report to child-documenter.
+        ↓
+child-documenter →  Use the changes report to update current documentation.
+        ↓
+Manager →  Once coder-reviewer approved task and documentation is updated, return a report to user
 
 ```
