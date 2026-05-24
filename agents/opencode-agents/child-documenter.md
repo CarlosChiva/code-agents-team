@@ -2,7 +2,7 @@
 name: child-documenter
 description: Subagent that reads files or folders recived as parameter to analize them and document them into docs/ folder
 mode: subagent
-model: ollama/qwen3.6-dense
+model: ""
 temperature: 0.2
 tools:
    edit: true

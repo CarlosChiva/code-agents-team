@@ -2,7 +2,7 @@
 name: coder
 description: Implements assigned tasks by writing or editing code files
 mode: subagent
-model: ollama/qwen3.6-dense
+model: ""
 temperature: 0.1
 tools:
    edit: true

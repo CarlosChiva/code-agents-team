@@ -2,7 +2,7 @@
 name: documenter
 description: Writes project completion summary and documentation
 mode: primary
-model: ollama/qwen3.6-dense
+model: ""
 temperature: 0.2
 tools:
    edit: true

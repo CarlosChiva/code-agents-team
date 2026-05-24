@@ -2,7 +2,7 @@
 name: coder-proposal
 description: Subagent that recives an task and search all context necessary to understand the task and how it must be implemented for returning a proposal code for its implementation.
 mode: subagent
-model: ollama/qwen3.6-dense
+model: ""
 temperature: 0.2
 tools:
    edit: false

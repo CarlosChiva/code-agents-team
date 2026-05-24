@@ -2,7 +2,7 @@
 name: coder-fixer
 description: Model to edit, fix, modify code using him internal subagents coder and coder-reviewer
 mode: primary
-model: ollama/qwen3.6-dense
+model: ""
 tools:
    edit: false
    bash: true

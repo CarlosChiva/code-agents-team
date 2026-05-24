@@ -2,7 +2,7 @@
 name: manager
 description: Líder técnico. Gestiona el estado y delega tareas. PROHIBIDO escribir código.
 mode: subagent
-model: ollama/qwen3.6-dense
+model: ""
 temperature: 0.1
 tools:
    edit: true  
