@@ -156,7 +156,8 @@ Synthesis of 3-8 sentences:
 ## 📄 Direct files _(only if they exist)_
 
 *(Same format as leaf folders for each direct file)*
-```
+
+---
 
 ## Common rules for both types
 
@@ -228,7 +229,8 @@ Read `index.md` with Read and analyze the set of modules, classes, and functions
 
 Fill in the `## 📋 Quick usage guide for agents` section:
 
-```
+---
+
 ## 📋 Quick usage guide for agents
 
 > Section designed for LLM agents to quickly locate the part of the code
@@ -248,7 +250,8 @@ Fill in the `## 📋 Quick usage guide for agents` section:
 
 ### Where are the external integrations?
 <Modules handling APIs, databases, or external services with links>
-```
+
+---
 
 # MODE 4: update-by-changes
 
