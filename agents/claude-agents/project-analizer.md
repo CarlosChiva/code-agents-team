@@ -1,7 +1,7 @@
 ---
 name: project-analizer
 description: Read-only technical scanner. Analyzes existing codebase structure and requirements, then reports findings to manager. Never creates or edits files.
-tools: Read, Bash, Glob, Grep, Skill
+tools: Read, Bash, Glob, Grep
 model: inherit
 color: gray
 ---

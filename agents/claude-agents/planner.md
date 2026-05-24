@@ -1,7 +1,7 @@
 ---
 name: planner
 description: Software architect. Breaks requirements and analysis into an ordered atomic task list and returns it to manager. Never creates files.
-tools: Read, Bash, Glob, Grep, Skill
+tools: Read, Bash, Glob, Grep
 model: inherit
 color: gray
 ---

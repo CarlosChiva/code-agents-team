@@ -1,7 +1,7 @@
 ---
 name: coder-reviewer
 description: Quality guardian. Reviews the coder's output and returns APPROVED or REJECTED with specific feedback. Always invoke after the coder completes a task, before marking it as DONE.
-tools: Read, Glob, Grepr, Bash
+tools: Read, Glob, Grep, Bash
 model: inherit
 ---
 
