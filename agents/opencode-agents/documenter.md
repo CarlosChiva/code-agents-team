@@ -4,14 +4,10 @@ description: Writes project completion summary and documentation
 mode: primary
 model: ""
 temperature: 0.2
-tools:
-   edit: true
-   bash: false
-   read: true
-   todoread: false
-   todowrite: false
-   task: true
 permission:
+   edit: allow
+   read: allow
+   bash: allow
    task: allow
 color: "#a0a0a0"
 ---

@@ -4,27 +4,17 @@ description: Reviews coder output and returns APPROVED or REJECTED with specific
 mode: subagent
 model: ""
 temperature: 0.1
-tools:
-   edit: false
-   bash: true
-   read: true
-   todoread: false
-   todowrite: false
-   task: false
-   skill: true
 permission:
    task: deny
    read: allow
-   edit: deny
-   bash: {
-      "cat *": deny,
+   bash: 
+      "*": allow
+      "cat *": deny
       "git *": deny
-   }
-   skill: 
-      "find-skills": allow
-      "*": allow   
+   skill: allow   
 color: "#f75050"
 ---
+
 You are the quality guardian. You receive a completed task and the coder's output, and decide whether the implementation is acceptable.
 
 ## INITIALIZATION (run silently before anything else)**MANDATORY:**

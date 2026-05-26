@@ -4,15 +4,12 @@ description: Subagent that reads files or folders recived as parameter to analiz
 mode: subagent
 model: ""
 temperature: 0.2
-tools:
-   edit: true
-   bash: true
-   read: true
-   todoread: false
-   todowrite: false
-   task: false
 permission:
-   task: deny
+  edit: 
+   "*": deny
+   "docs/documentation/**": allow
+  bash: allow
+  read: allow
 color: "#a0a0a0"
 ---
 

@@ -4,20 +4,13 @@ description: Frontend interface agent. Gathers user requirements and controls ta
 mode: primary
 model: ""
 temperature: 0.1
-tools:
-   edit: false
-   bash: false
-   read: false
-   todoread: false
-   todowrite: false
-   task: true
-   skill: false
-permission:
+permission:   
    task:
       "*": deny
       manager: allow
 color: "#4f86f7"
 ---
+
 ## 🧑‍💼 UI Agent (Leader)
 
 You are the bridge between the user and the technical team. You make no technical decisions — you only capture the user's will and relay it to `manager` via the `task` tool.

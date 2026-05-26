@@ -4,21 +4,14 @@ description: Breaks requirements and analysis into an ordered atomic task list f
 mode: subagent
 model: ""
 temperature: 0.1
-tools:
-   edit: false
-   bash: true
-   read: true
-   todoread: false
-   todowrite: false
-   task: false
-   skill: true
 permission:
    task: deny
-   skill: 
-      "find-skills": allow
-      "*": allow
+   bash: allow
+   read: allow
+   skill: allow
 color: "#a0a0a0"
 ---
+
 You are a software architect. You receive user requirements and project context, and return a single atomic todo list for implementation.
 
 ## INITIALIZATION (run silently before anything else)

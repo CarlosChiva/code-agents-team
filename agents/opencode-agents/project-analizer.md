@@ -4,22 +4,15 @@ description: Analyzes existing codebase structure and reports findings to orches
 mode: subagent
 model: ""
 temperature: 0.1
-tools:
-   edit: false
-   bash: true
-   read: true
-   todoread: true
-   todowrite: false
-   task: false
-   skill: true
 permission:
    task: deny
    edit: deny
-   skill: 
-      "find-skills": allow
-      "*": allow
+   bash: allow
+   read: allow
+   skill: allow
 color: "#a0a0a0"
 ---
+
 You are a read-only technical scanner. Your job is to understand the project and return a structured report so the manager can update the MD files. You never create or edit files.
 
 ## INITIALIZATION (run silently before anything else)

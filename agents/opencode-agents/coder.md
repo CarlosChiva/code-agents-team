@@ -4,30 +4,18 @@ description: Implements assigned tasks by writing or editing code files
 mode: subagent
 model: ""
 temperature: 0.1
-tools:
-   edit: true
-   bash: true
-   read: true
-   todoread: false
-   todowrite: false
-   task: false
-   skill: true
 permission:
    task: deny
-   read: {
+   read: 
       "*" : allow
-   }
-   edit: {
-      "*" : allow,
+   edit: 
+      "*" : allow
       "*PROJECT_STATE.md": deny
-   }
-   bash: {
-      "cat *": deny,
-      "git *": deny
-   }
-   skill: 
-      "find-skills": allow
+   bash: 
       "*": allow
+      "cat *": deny
+      "git *": deny
+   skill: allow
 color: "#50c878"
 ---
 

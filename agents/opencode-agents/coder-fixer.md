@@ -3,28 +3,17 @@ name: coder-fixer
 description: Model to edit, fix, modify code using him internal subagents coder and coder-reviewer
 mode: primary
 model: ""
-tools:
-   edit: false
-   bash: true
-   read: true
-   todoread: false
-   todowrite: false
-   task: true
-   skill: false
 permission:
-   read: allow
-   
-   bash: {
-      "cat *": deny,
+   read: allow 
+   bash: 
+      "cat *": deny
       "git *": deny
-   }
-   task: {
-      "*": deny,
-      "coder-proposal": allow,
-      "coder": allow,
-      "coder-reviewer":allow
-   }
-   skills: allow
+   task: 
+      "*": deny
+      "coder-proposal": allow
+      "coder": allow
+      "coder-reviewer": allow
+   skill: allow
 color: "#b90202"
 ---
 

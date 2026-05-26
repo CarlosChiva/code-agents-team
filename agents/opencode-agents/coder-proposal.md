@@ -4,15 +4,12 @@ description: Subagent that recives an task and search all context necessary to u
 mode: subagent
 model: ""
 temperature: 0.2
-tools:
-   edit: false
-   bash: true
-   read: true
-   todoread: false
-   todowrite: false
-   task: false
-   skills: true
-
+permission:
+   bash: allow
+   glob: allow
+   grep: allow
+   read: allow
+   skill: allow
 color: "#a0a0a0"
 ---
 
