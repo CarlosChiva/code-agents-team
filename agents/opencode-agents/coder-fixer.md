@@ -13,6 +13,7 @@ permission:
       "coder-proposal": allow
       "coder": allow
       "coder-reviewer": allow
+      "child-documente": allow
    skill: allow
 color: "#b90202"
 ---
