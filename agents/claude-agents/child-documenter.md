@@ -23,7 +23,7 @@ Mapping example:
 # MODE 1: document-folder
 
 ## Input Data
-- `folder`: full path of the folder to document
+- `folder`: relative path of the root project folder to document
 - `type`: "leaf" or "composite"
 - `repo_root`: root path of the repository
 - `documented_children`: (only for composite) list of paths of the .md files already generated
@@ -76,7 +76,7 @@ Write the `.md` file using this format:
 
 # `<folder_name>`
 
-> Path: `<full_path>`
+> Path: `<relative_path_from_project_root_folder>`
 > Last updated: <YYYY-MM-DD>
 > Type: Leaf folder
 
@@ -127,7 +127,7 @@ Write the `.md` file using this format:
 
 # `<folder_name>`
 
-> Path: `<full_path>`
+> Path: `<relative_path_from_project_root_folder>`
 > Last updated: <YYYY-MM-DD>
 > Type: Composite folder
 

@@ -84,7 +84,7 @@ Write the `.md` file using this format:
 
 # `<folder_name>`
 
-> Path: `<full_path>`
+> Path: `<relative_path_from_project_root_folder>`
 > Last updated: <YYYY-MM-DD>
 > Type: Leaf folder
 
@@ -135,7 +135,7 @@ Write the `.md` file using this format:
 
 # `<folder_name>`
 
-> Path: `<full_path>`
+> Path: `<relative_path_from_project_root_folder>`
 > Last updated: <YYYY-MM-DD>
 > Type: Composite folder
 
