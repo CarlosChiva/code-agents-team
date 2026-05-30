@@ -75,10 +75,6 @@ Once all `child-documenter` documentation tasks are finished, create the
 
 ## 🗺️ Module Map
 
-## 🧩 Available Classes
-
-## ⚙️ Available Functions
-
 ## 📋 Quick usage guide for agents
 ```
 

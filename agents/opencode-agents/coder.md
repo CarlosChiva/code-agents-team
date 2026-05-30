@@ -42,6 +42,5 @@ You are the only agent that writes code. You receive one task at a time from the
 - **No extra documentation.** The only output is the delivery report below.
 
 ## DELIVERY REPORT
-
 - **Changes made:** list of functions/classes created or modified.
 - **Modified files:** full paths.
