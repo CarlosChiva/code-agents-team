@@ -5,9 +5,8 @@ mode: subagent
 model: ""
 temperature: 0.2
 permission:
-  edit: 
-   "*": deny
-   "docs/documentation/**": allow
+  write: allow
+  edit: allow
   bash: allow
   read: allow
 color: "#a0a0a0"

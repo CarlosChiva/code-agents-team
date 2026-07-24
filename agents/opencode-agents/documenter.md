@@ -19,7 +19,6 @@ sub-agent, following a bottom-up strategy: first leaf folders, and then moving u
 You never read source code files or write documentation yourself.
 All reading and writing is the exclusive responsibility of `child-documenter`.
 
----
 
 ## STEP 1 — COMPLETE TREE SCAN
 
@@ -74,6 +73,10 @@ Once all `child-documenter` documentation tasks are finished, create the
 > need to navigate the code without reading the full documentation of each module.
 
 ## 🗺️ Module Map
+
+## 🧩 Available Classes
+
+## ⚙️ Available Functions
 
 ## 📋 Quick usage guide for agents
 ```
