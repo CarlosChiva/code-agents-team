@@ -6,9 +6,14 @@ model:
 permission:
   task: deny
   write:
-    "**/docs/documentation/**.md": allow
+    "*": deny
+    "docs/documentation/**": allow
+    "docs/documentation/*": allow
   edit:
-    "**/docs/documentation/**.md": allow
+    "docs/documentation/**": allow
+    "docs/documentation/*": allow
+  grep: allow
+  glob: allow
   bash: allow
   read: allow
 color: "#a0a0a0"

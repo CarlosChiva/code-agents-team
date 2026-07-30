@@ -6,17 +6,14 @@ model:
 permission:
    task: deny
    read: allow
-   
    edit:
       "*": deny
-      "**/docs/index-tasks.md": allow
-      "**/docs/tasks/**.md": allow
-   
+      "docs/index-tasks.md": allow
+      "docs/tasks/**": allow
    write:
       "*": deny
-      "**/docs/index-tasks.md": allow
-      "**/docs/tasks/**.md": allow
-
+      "docs/index-tasks.md": allow
+      "docs/tasks/**": allow
    bash: allow
    skill: allow
 color: "#a0a0a0"

@@ -11,16 +11,18 @@ permission:
       coder-reviewer: allow
       documenter: allow
    read:
-      "**/docs/*.md": allow
-      "**/docs/tasks/*.md": allow
-      "**/docs/index-tasks.md": allow
+      "*": deny
+      "docs/*": allow
+      "docs/tasks/*": allow
+      "docs/index-tasks.md": allow
    edit:
+      "*": deny
       "docs/LESSONS_LEARNED.md": allow
       "docs/LOGS.md": allow
       "docs/index-tasks.md": allow
    write:
-      "**/docs/LOGS.md": allow
-      "**/docs/LESSONS_LEARNED.md": allow
+      "docs/LOGS.md": allow
+      "docs/LESSONS_LEARNED.md": allow
    bash: allow
 color: "#50c878"
 ---

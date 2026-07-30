@@ -9,14 +9,17 @@ permission:
       project-structure: allow
       task-planner: allow
    read:
-      "**/docs/REQUIREMENTS.md": allow
-      "**/docs/PROJECT_STRUCTURE.md": allow
-      "**/docs/FRAMEWORKS.md": allow
-      "**/docs/index-tasks.md": allow
+      "*": deny
+      "docs/REQUIREMENTS.md": allow
+      "docs/PROJECT_STRUCTURE.md": allow
+      "docs/FRAMEWORKS.md": allow
+      "docs/index-tasks.md": allow
    edit:
-      "**/docs/REQUIREMENTS.md": allow
+      "*": deny
+      "docs/REQUIREMENTS.md": allow
    write:
-      "**/docs/REQUIREMENTS.md": allow   
+      "*": deny
+      "docs/REQUIREMENTS.md": allow   
    bash: allow
 color: "#636bfd"
 ---

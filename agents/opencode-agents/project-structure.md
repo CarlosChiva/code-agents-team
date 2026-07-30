@@ -8,17 +8,15 @@ permission:
    read: allow
    edit:
       "*": deny
-      "**/docs/PROJECT_STRUCTURE.md": allow
-      "**/docs/FRAMEWORKS.md": allow
+      "docs/PROJECT_STRUCTURE.md": allow
+      "docs/FRAMEWORKS.md": allow
    write:
       "*": deny
-      "**/docs/PROJECT_STRUCTURE.md": allow
-      "**/docs/FRAMEWORKS.md": allow
-   
+      "docs/PROJECT_STRUCTURE.md": allow
+      "docs/FRAMEWORKS.md": allow
    bash: allow
    skill: allow
    webfetch: allow
-   websearch: allow
 color: "#a0a0a0"
 ---
 

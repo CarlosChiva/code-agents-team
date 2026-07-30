@@ -6,19 +6,21 @@ model:
 permission:
    write:
       "*": allow
-      "**/docs/*": deny
-      "**/docs/tasks/*": deny
+      "docs/*": deny
+      "docs/tasks/*": deny
    task: deny
    read:
       "*": allow
    edit:
       "*": allow
-      "**/docs/*": deny
-      "**/docs/tasks/*": deny
+      "docs/*": deny
+      "docs/tasks/*": deny
    bash:
       "*": allow
       "cat *": deny
       "git *": deny
+   glob: allow
+   grep: allow
    skill: allow
 color: "#50c878"
 ---

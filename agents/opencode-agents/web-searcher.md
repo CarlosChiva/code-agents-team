@@ -8,7 +8,6 @@ permission:
    read: deny
    edit: deny
    bash: deny
-   websearch: allow
    webfetch: allow
 color: "#a0a0a0"
 ---
