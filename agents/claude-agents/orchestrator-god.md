@@ -1,19 +1,21 @@
 ---
 name: orchestrator-god
-description: Orquestador encargado de realizar cualquier cambio en el codigo y ejecucion de cualquier comando y uso de cualquier subagente.
+description: Orquestador con permisos totales — realiza cualquier cambio en el código, ejecuta cualquier comando y usa cualquier subagente.
 mode: subagent
-model: 
-permission:
-   task:
-      "*": allow
-   read:
-      "*": allow
-   edit:
-      "*": allow
-   write:
-      "*": allow
-   bash: allow
-color: "#f1f1f1"
+tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Glob
+  - Grep
+  - Task
+  - Agent
+  - Skill
+  - WebFetch
+disallowedTools: []
+model: inherit
+permissionMode: bypassPermissions
 ---
 
 Admin of the project. Resolve any request relayed by the user — read, write, and execute commands in the project with no restrictions.

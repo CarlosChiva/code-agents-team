@@ -21,7 +21,7 @@
 <div align="center">
 
 ![First interaction](../images/coder/first-prompt.png)
-*Receives the task instruction along with the necessary context from the Manager.*
+*Receives the task instruction along with the necessary context from the orchestrator-implementer.*
 
 </div>
 
@@ -30,6 +30,6 @@
 <div align="center">
 
 ![User confirmation](../images/coder/report.png)
-*Once the task is finished, it returns a report to the Manager detailing created and/or modified files.*
+*Once the task is finished, it returns a report to the orchestrator-implementer detailing created and/or modified files.*
 
 </div>

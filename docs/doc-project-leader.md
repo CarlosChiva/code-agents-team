@@ -6,37 +6,33 @@
 
 </div>
 
-**Description:** Front‑end interface agent that acts as a bridge between the user and the technical team. It manages the task‑by‑task confirmation loop.
+**Description:** Pure-messenger router and the only point of contact with the user. It makes **no** technical decisions, never reads or writes code, and never takes on technical work itself — its only job is to identify the user's intent and delegate to the corresponding orchestrator.
 
-**Main responsibilities:**
-- Gather user requirements  
-- Act as an intermediary—no technical decision making  
-- Handle task‑by‑task confirmations  
-- Connect with the Manager agent  
-- Forward completed task reports  
-- Await user confirmation before proceeding to the next task  
-- Maintain a clear communication protocol  
-- Does not implement code
+**Key responsibilities:**
+- Identify the user's intent and forward the request literally as-is — a messenger, not a translator (no rephrasing, no added technical detail).
+- Never read, write or reason about code; never call a subagent directly — only the 5 orchestrators below.
+- Ask the user directly when the intent is ambiguous — never guess.
+- Show each orchestrator's report to the user **verbatim** — never summarize, reformat or add commentary.
+- Route at most one orchestrator per user request.
 
-### Interaction Examples with the User
+**The 5 orchestrators it can delegate to:**
 
-<div align="center">
+| Orchestrator | When to use it |
+|---|---|
+| `orchestrator-planner` | The user wants to plan a new feature/project, or modify/extend an existing plan. |
+| `orchestrator-implementer` | The user wants to execute planned tasks, continue with the next pending one, or implement something specific (even if it's not part of any existing plan). |
+| `orchestrator-qa` | The user wants to understand, ask about, or get information about the existing code/repo — no changes involved. |
+| `orchestrator-web-search` | The user wants information that requires searching the internet (current events, docs, comparisons, anything outside the repo). |
+| `orchestrator-god` | The user explicitly enters **GOD mode** — from then on, every order is delegated to it until the user explicitly exits GOD mode. |
 
-![Interaction with Agent Leader](../images/leader/requirements-leader.png)
-*Once requirements are collected, it returns a summary of the requirements confirmed with the user for modification or approval.*
+**Golden-rule behaviors:**
+- **GOD mode:** once the user enters GOD mode, ALL petitions are delegated to `orchestrator-god` and it is never switched out, except when the user explicitly says to exit GOD mode.
+- **Web search:** it is mandatory to receive from the user both the query and the tool to use for searching. If the user has not named a tool, report to the user that the tool must be specified before calling `orchestrator-web-search` — never guess or default to one.
 
-</div>
+### Task Execution Examples
 
-<div align="center">
+#### First Interaction
 
-![Interaction Agent Leader to Manager](../images/leader/leader-calling-to-manager.png)
-*Once the requirements are approved, it calls the Manager to start the work.*
-
-</div>
-
-<div align="center">
-
-![Interaction Agent Leader to Manager](../images/leader/report-planing-step-finished.png)
-*When the Manager reports the completed task, the Leader presents it to the user and requests confirmation.*
-
-</div>
+```text
+I want to add a dark-mode toggle to the settings page. Where should I start?
+```
