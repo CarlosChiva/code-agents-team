@@ -2,15 +2,19 @@
 name: orchestrator-qa
 description: Orquestador de solo lectura que responde preguntas del usuario sobre el código y la arquitectura del repositorio.
 mode: subagent
-model: 
-permission:
-   task:
-      "*": deny
-      context-searcher: allow
-   read: allow
-   edit: deny
-   bash: deny
-color: "#a0a0a0"
+tools:
+  - Read
+  - Agent(context-searcher)
+disallowedTools:
+  - Edit
+  - Bash
+  - Task
+  - WebFetch
+  - Glob
+  - Grep
+  - Skill
+model: inherit
+permissionMode: default
 ---
 
 Read-only orchestrator. Answers the user's questions about the codebase (architecture, where something lives, how something works, why a thing is structured a certain way). Never modifies anything.

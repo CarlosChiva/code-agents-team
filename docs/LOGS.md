@@ -1,0 +1,11 @@
+# Logs
+
+## [2026-08-25] Task ADHOC — Conversión agentes opencode a formato pi agent
+Resumen: Investigado (DuckDuckGo) el formato de agentes custom de pi coding agent (frontmatter YAML `name`/`description`/`tools` CSV con builtin read/write/edit/bash/grep/find/ls o `none`) y creada la carpeta `agents/pi-agents/` espejo de `agents/opencode-agents/`: 14 agentes con cuerpos byte a byte idénticos y frontmatter transformado, documentando en comentarios YAML las restricciones opencode no expresables en pi (rutas, filtros bash, task/webfetch). README raíz actualizado con instalación para pi.
+Ficheros: agents/pi-agents/project-leader.md, agents/pi-agents/orchestrator-planner.md, agents/pi-agents/orchestrator-implementer.md, agents/pi-agents/orchestrator-qa.md, agents/pi-agents/orchestrator-web-search.md, agents/pi-agents/orchestrator-god.md, agents/pi-agents/context-searcher.md, agents/pi-agents/coder-proposal.md, agents/pi-agents/coder.md, agents/pi-agents/coder-reviewer.md, agents/pi-agents/documenter.md, agents/pi-agents/project-structure.md, agents/pi-agents/task-planner.md, agents/pi-agents/web-searcher.md, agents/pi-agents/README.md, README.md, docs/documentation/doc-pi-agents.md
+Ciclos de revisión: 1
+
+## [2026-08-25] Task ADHOC — Auditoría de permisos pi-agents vs opencode (sintaxis pi-subagents)
+Resumen: Investigado con DuckDuckGo el plugin tintinweb/pi-subagents v0.18.x (requiere pi >= 0.84.0): `allowed_subagents` como equivalente exacto de `permission.task` (omitido = denegado por default-off; `all`/CSV runtime-enforced; cap de profundidad `maxSubagentDepth`, default 2), `tools` con especiales `*`/`all`/`none` y selectores `ext:<extension>/<tool>`, y `color` soportado con hex entre comillas. Corregido agents/pi-agents/: `allowed_subagents` derivado del `permission.task` real en los 7 agentes delegantes (omisión + comentario en los 7 con task denegada), tools recalculadas estrictamente desde `permission:` (revertidas sobreconcesiones en orchestrator-god y orchestrator-planner), `color` verbatim restaurado en los 14, comentarios `# pi:` actualizados; README interno, README raíz y docs/documentation/doc-pi-agents.md sincronizados.
+Ficheros: agents/pi-agents/*.md (14), agents/pi-agents/README.md, README.md, docs/documentation/doc-pi-agents.md
+Ciclos de revisión: 1

@@ -2,22 +2,18 @@
 name: project-structure
 description: Investiga y determina cómo debe quedar la estructura del repositorio y las tecnologías a usar según los requerimientos, escribiendo el resultado directamente en ficheros.
 mode: subagent
-model: 
-permission:
-   task: deny
-   read: allow
-   edit:
-      "*": deny
-      "docs/PROJECT_STRUCTURE.md": allow
-      "docs/FRAMEWORKS.md": allow
-   write:
-      "*": deny
-      "docs/PROJECT_STRUCTURE.md": allow
-      "docs/FRAMEWORKS.md": allow
-   bash: allow
-   skill: allow
-   webfetch: allow
-color: "#a0a0a0"
+tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Skill
+  - WebFetch
+disallowedTools:
+  - Task
+  - Agent
+model: inherit
+permissionMode: default
 ---
 
 Technical scanner and architecture researcher. Determine — and write down — how the repository structure should look and which technologies to use, given the current requirements. Never plan tasks, never write code.

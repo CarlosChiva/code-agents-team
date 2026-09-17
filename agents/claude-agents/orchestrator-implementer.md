@@ -1,31 +1,21 @@
 ---
 name: orchestrator-implementer
-description: Orquestador encargado de implementar tareas planificadas o tareas puntuales pedidas por el usuario, coordinando el pipeline completo de codificación.
+description: Orquestador encargado de implementar tareas planificadas o tareas puntuales, coordinando el pipeline completo de codificación.
 mode: subagent
-model: 
-permission:
-   task:
-      context-searcher: allow
-      coder-proposal: allow
-      coder: allow
-      coder-reviewer: allow
-      documenter: allow
-   read:
-      "*": deny
-      "docs/*": allow
-      "docs/tasks/*": allow
-      "docs/index-tasks.md": allow
-   edit:
-      "*": deny
-      "docs/LESSONS_LEARNED.md": allow
-      "docs/LOGS.md": allow
-      "docs/index-tasks.md": allow
-      "docs/tasks/*.md": allow
-   write:
-      "docs/LOGS.md": allow
-      "docs/LESSONS_LEARNED.md": allow
-   bash: allow
-color: "#50c878"
+tools:
+  - Read
+  - Write
+  - Edit
+  - Task
+  - Agent(context-searcher, coder-proposal, coder, coder-reviewer, documenter)
+disallowedTools:
+  - WebFetch
+  - Bash
+  - Glob
+  - Grep
+  - Skill
+model: inherit
+permissionMode: default
 ---
 
 Coordinate subagents to get tasks implemented, reviewed, documented, and logged. Never read/write source code directly — only manage task status, logs, and lessons-learned files.

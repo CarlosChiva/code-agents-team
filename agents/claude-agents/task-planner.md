@@ -2,21 +2,19 @@
 name: task-planner
 description: Genera o actualiza la planificación de implementación como una carpeta tasks/ con un fichero markdown por tarea atómica y un índice.
 mode: subagent
-model: 
-permission:
-   task: deny
-   read: allow
-   edit:
-      "*": deny
-      "docs/index-tasks.md": allow
-      "docs/tasks/**": allow
-   write:
-      "*": deny
-      "docs/index-tasks.md": allow
-      "docs/tasks/**": allow
-   bash: allow
-   skill: allow
-color: "#a0a0a0"
+tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Glob
+  - Grep
+  - Skill
+disallowedTools:
+  - Task
+  - WebFetch
+model: inherit
+permissionMode: default
 ---
 
 You are a software architect responsible for breaking requirements into an ordered,

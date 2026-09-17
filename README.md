@@ -4,11 +4,13 @@ This repository contains the full configuration of a team of specialized agents 
 
 ## What is this project?
 
-`code-agents-team` is a collaborative system of autonomous agents designed to manage development projects following a structured workflow within the OpenCode tool. Each agent has a specific role and responsibility, working in sequence to transform user requirements into functional code while maintaining high standards of quality and security.
+`code-agents-team` is a collaborative system of autonomous agents designed to manage development projects following a structured workflow within the OpenCode and claude code  tool. Each agent has a specific role and responsibility, working in sequence to transform user requirements into functional code while maintaining high standards of quality and security.
+
+The team lives in `agents/opencode-agents/` for Opencode utilization and is mirrored in `agents/claude-agents/` for Claude Code use.
 
 ## 🏢 Agent Team
 
-This system consists of 9 specialized agents:
+This system consists of 14 specialized agents — 1 in the router, 5 orchestrators and 8 subagents.
 
 <div align="center">
 
@@ -16,50 +18,81 @@ This system consists of 9 specialized agents:
 
 </div>
 
-### 1. 🎯 Manager – Technical Project Manager
-The technical lead responsible for coordinating all system operations. It manages the project state via `PROJECT_STATE.md`, delegates tasks to the appropriate agents, and ensures the workflow follows the INIT → PLANNING → EXECUTION cycle.
+### Router
 
-[Manager Documentation](docs/doc-manager.md)
+### 1. 🧑‍💼 Project-Leader — User-System Router
+Pure-messenger router and the only point of contact with the user. It makes no technical decisions, never reads or writes code, and only identifies the user's intent to delegate to the corresponding orchestrator.
 
-### 2. ⚡ Coder – Technical Executor
-The execution arm that implements assigned tasks by writing or editing code files. It strictly follows existing coding styles, prioritizes corrections from the review agent, and reports all changes in detail.
+[Full Documentation](docs/doc-project-leader.md)
 
-[Coder Documentation](docs/doc-coder.md)
+### Orchestrators
 
-### 3. 🔍 Coder‑Reviewer – Code Quality Guardian
-The final quality filter, reviewing each implementation by the Coder agent to determine if it should be accepted or corrected. It provides specific technical feedback when the code does not meet standards of quality, security, robustness, and coding conventions.
+### 2. 📐 Orchestrator-Planner — Planning Orchestrator
+Turns user requirements into a written, atomic implementation plan. It determines NEW PLAN vs UPDATE PLAN mode, delegates to `project-structure` then `task-planner` (strict order), and never writes code — its only writable file is `docs/REQUIREMENTS.md`.
 
-[Coder‑Reviewer Documentation](docs/doc-coder-reviewer.md)
+[Full Documentation](docs/doc-orchestrator-planner.md)
 
-### 4. 📋 Planner – Software Architect
-Transforms long, complex user requirements into a list of small, atomic, and logically ordered tasks. It uses structured tabular formats to organize execution from configuration to final documentation.
+### 3. ⚙️ Orchestrator-Implementer — Implementation Orchestrator
+Coordinates the complete pipeline to actually implement a task: `context-searcher` → `coder-proposal` → `coder` ⇄ `coder-reviewer` (loop until APPROVED) → `documenter`. It manages task status in `docs/index-tasks.md`, `docs/LOGS.md` and `docs/LESSONS_LEARNED.md` without ever touching source code. Also it can to implement a little implementation ad-hoc if user ask for him following the all him subagents pipeline.
 
-[Planner Documentation](docs/doc-planner-project-analizer.md#planner-plannermd)
+[Full Documentation](docs/doc-orchestrator-implementer.md)
 
-### 5. 🔬 Project‑Analyzer – Technical Environment Analyst
-Conducts a complete technical “x‑ray” of the existing environment and project structure. It maps files, detects used technologies, identifies architectures, and returns critical findings that serve as a basis for technical decision‑making.
+### 4. 🔍 Orchestrator-QA — Read-Only Q&A Orchestrator
+Answers the user's questions about the existing codebase (architecture, "where does X live?", "how does Y work?") in a strictly read-only capacity. All context gathering is delegated to `context-searcher`; nothing is ever modified.
 
-[Project‑Analyzer Documentation](docs/doc-planner-project-analizer.md#project-analyzer-project-analizermd)
+[Full Documentation](docs/doc-orchestrator-qa.md)
 
-### 6. 👤 Project-Leader – User‑System Interface
-The human‑technology bridge that gathers user requirements and manages task‑by‑task confirmations. It acts as an intermediary between user needs and technical execution, controlling workflow through clear confirmations.
+### 5. 🌐 Orchestrator-Web-Search — Internet Search Orchestrator
+Resolves information requests that require searching the internet. Requires the user to name the tool to use (or it stops and asks), delegates at most 4 atomic searches to `web-searcher`, and consolidates the findings into a final cited report.
 
-[Leader Documentation](docs/doc-leader.md)
+[Full Documentation](docs/doc-orchestrator-web-search.md)
 
-### 7. 🔧 Coder‑fixer
-Specific orchestrator agent that receives coding tasks from the user and coordinates their execution using sub-agents: `coder-proposal`, `coder`, `coder-reviewer` and `child-documenter`. It never writes code directly, only delegates and reports.
+### 6. 👑 Orchestrator-God — Unrestricted Orchestrator
+Explicit escape hatch with no restrictions (full read/write/bash/task permissions). Prefers delegating to a fitting specialized subagent when one exists, otherwise handles the request directly. Invoked exclusively when the user enters GOD mode.
 
-[Coder-fixer Documentation](docs/doc-coder-fixer.md)
+[Full Documentation](docs/doc-orchestrator-god.md)
 
-### 8. 📋 Coder‑Proposal – Technical Proposal Generator
-Analyzes code modification tasks and generates a detailed technical proposal before any line is written. It searches documentation, reads source files, finds relevant skills, and produces a structured proposal report with proposed changes, implementation order, and risks. Never executes changes, only proposes.
+### Subagents
 
-[Coder-Proposal Documentation](docs/doc-coder-proposal.md)
+### 7. 📚 Context-Searcher — Context Gathering Subagent
+Generic, reusable read-only subagent that receives a task or question and returns a structured 5-section context report (relevant code, documentation, skills, MCPs, past lessons). Stays within an 80k-token budget by delegating heavy reading to the `explore` subagent builtin. It never writes anything.
 
-### 9. 📝 Child‑Documenter – Technical Documentation Generator
-Specialized agent that reads source code and generates hierarchical technical documentation. Operates in three modes: document-folder (generates `.md` docs replicating repository structure), index-module (adds documentation to index), and close-index (generates quick-reference guide).
+[Full Documentation](docs/doc-context-searcher.md)
 
-[Child-Documenter Documentation](docs/doc-child-documenter.md)
+### 8. 📋 Coder-Proposal — Technical Proposal Generator
+Analyzes a code modification task and generates a detailed technical proposal before any line is written — proposed changes per file, implementation order, and risks. Never executes changes, only proposes.
+
+[Full Documentation](docs/doc-coder-proposal.md)
+
+### 9. ⚡ Coder — Technical Executor
+The execution arm that implements the assigned task by writing or editing code files while adhering to the existing coding style. Prioritizes corrections from the Coder-Reviewer when provided, and reports the changes made upon completion.
+
+[Full Documentation](docs/doc-coder.md)
+
+### 10. 🛡️ Coder-Reviewer — Code Quality Guardian
+The quality gate that reviews every implementation and returns **APPROVED** or **REJECTED** with specific, technical feedback. Verifies adherence to requirements, code quality, security risks and robustness.
+
+[Full Documentation](docs/doc-coder-reviewer.md)
+
+### 11. 📝 Documenter — Technical Documentation Generator
+Invoked by `orchestrator-implementer` after each approved task. Writes ONLY inside `docs/documentation/`, maintaining a hierarchical, indexed documentation tree that mirrors the repository structure. Operates in 4 modes: `document-folder`, `index-module`, `close-index` and `update-by-changes`. Never deletes existing docs.
+
+[Full Documentation](docs/doc-documenter.md)
+
+### 12. 🏗️ Project-Structure — Architecture Researcher
+Determines the target repo structure and technology stack from `docs/REQUIREMENTS.md`, mapping the current structure if code exists or recommending one if not. Writes only `docs/PROJECT_STRUCTURE.md` and `docs/FRAMEWORKS.md`; never plans tasks.
+
+[Full Documentation](docs/doc-project-structure.md)
+
+### 13. 🧩 Task-Planner — Task Architect
+Breaks the requirements into an ordered, atomic, dependency-aware task list, materialized as one file per task in `docs/tasks/NNN-slug.md` (YAML frontmatter + description + acceptance criteria) plus an aggregating index in `docs/index-tasks.md`. Every new task starts as `PENDING`.
+
+[Full Documentation](docs/doc-task-planner.md)
+
+### 14. 🌐 Web-Searcher — Atomic Web Search Subagent
+Minimal, single-purpose subagent: exactly one search per call, using ONLY the tool named in its input (explicit anti-fallback), and returning only the 3 most relevant results with brief paraphrased summaries. If the named tool is unavailable it stops and reports — it never substitutes another.
+
+[Full Documentation](docs/doc-web-searcher.md)
 
 ---
 
@@ -87,6 +120,14 @@ Depends on the code cli where agents are going to be installed, follow the step 
    cp -r agents/opencode-agents/* ~/.config/opencode/agents/
    ```
 
+5. **If agents are going installed into pi:**
+   ```bash
+   cp -r agents/pi-agents/*.md .pi/agents/
+   ```
+   Project-level install shown; for a global install use `cp -r agents/pi-agents/*.md ~/.pi/agent/agents/`.
+
+> Requires the delegation plugin for inter-agent delegation: `pi install npm:@tintinweb/pi-subagents`
+
 > Remember set the model and provider from agents.md before to launch opencode.
 
 ### Destination Paths
@@ -95,6 +136,7 @@ Depends on the code cli where agents are going to be installed, follow the step 
 |------------------|-------------------|-------------------|
 | Linux/macOS      | `~/.config/opencode/agents/` | Opencode |
 | Linux/macOS      | `~/.claude/agents/` | Claude code |
+| Linux/macOS      | `.pi/agents/` (project) or `~/.pi/agent/agents/` (global) | Pi |
 
 ⚠️ **Important:** Don’t forget to edit each file to correctly configure the `provider` and `model` values before using the agents.
 
@@ -105,103 +147,88 @@ Depends on the code cli where agents are going to be installed, follow the step 
 ```
 code-agents-team/
 ├── agents/
-│   ├── claude-agents/
-│   │   ├── manager.md
-│   │   ├── coder.md
-│   │   ├── coder-reviewer.md
-│   │   ├── coder-proposal.md
-│   │   ├── coder-fixer.md
-│   │   ├── planner.md
-│   │   ├── project-analizer.md
+│   ├── opencode-agents/                  # 14 agents — canonical (opencode)
 │   │   ├── project-leader.md
-│   │   ├── child-documenter.md
+│   │   ├── orchestrator-planner.md
+│   │   ├── orchestrator-implementer.md
+│   │   ├── orchestrator-qa.md
+│   │   ├── orchestrator-web-search.md
+│   │   ├── orchestrator-god.md
+│   │   ├── context-searcher.md
+│   │   ├── project-structure.md
+│   │   ├── task-planner.md
+│   │   ├── web-searcher.md
+│   │   ├── coder.md
+│   │   ├── coder-proposal.md
+│   │   ├── coder-reviewer.md
 │   │   └── documenter.md
-│   └── opencode-agents/
-│       ├── manager.md
-│       ├── coder.md
-│       ├── coder-reviewer.md
-│       ├── coder-proposal.md
-│       ├── coder-fixer.md
-│       ├── planner.md
-│       ├── project-analizer.md
+│   ├── claude-agents/                    
+│       ├── project-leader.md             
+│       ├── orchestrator-planner.md       
+│       ├── orchestrator-implementer.md   
+│       ├── orchestrator-qa.md            
+│       ├── orchestrator-web-search.md    
+│       ├── orchestrator-god.md           
+│       ├── context-searcher.md           
+│       ├── project-structure.md          
+│       ├── task-planner.md               
+│       ├── web-searcher.md               
+│       ├── coder.md                      
+│       ├── coder-proposal.md             
+│       ├── coder-reviewer.md                 
+│       └── documenter.md                  
+│   └── pi-agents/                        # mirror for pi coding agent
 │       ├── project-leader.md
-│       ├── child-documenter.md
+│       ├── orchestrator-planner.md
+│       ├── orchestrator-implementer.md
+│       ├── orchestrator-qa.md
+│       ├── orchestrator-web-search.md
+│       ├── orchestrator-god.md
+│       ├── context-searcher.md
+│       ├── project-structure.md
+│       ├── task-planner.md
+│       ├── web-searcher.md
+│       ├── coder.md
+│       ├── coder-proposal.md
+│       ├── coder-reviewer.md
 │       └── documenter.md
-├── images/                    
-│   └── ...
-├── docs/        
-│   └── ...
-└── README.md                   
+├── docs/
+│   └── doc-*.md                          # one doc-*.md per agent (14 files)
+├── images/                               # screenshots folder
+└── README.md
 ```
 
 ## 🔗 Main Workflow using Project-Leader
 
-This system works based 2 stages:
+The user only ever talks to **Project-Leader** (the router), which delegates to the single orchestrator that fits the request:
 
 ```
-# First interaction with team
-
-User Requirements
-        ↓
-Project-leader (Interfaz) ← Collect user requirements
-        ↓
-Manager → Project-analizer (First analisys from repo)
-        ↓
-Manager → Planner (Planning TODO List) 
-        ↓
-Project-leader (Interfaz) ← Project_State created. Waiting user confirmation to start.
-
-
-# Once Project_State is created.
-
-User Confirmation
-        ↓
-Project-leader (Interfaz) ← ask yo user for continue the tasks.
-        ↓
-Manager → read project state to send to coder the first pending task.
-        ↓
-Coder-proposal → Recive task , read all dependecies and files to know about context to make the task and return a proposal report to implement task.
-        ↓
-Manager → Recive proposal report and send it to coder.
-        ↓
-Coder (Implementation)
-        ↓
-Manager →  Send the report and task to coder-reviewer
-        ↓
-Coder-Reviewer (Verify task completed sucessfully)
-        ↓
-Manager →  Chose depends on the output of coder-reviewer if task is completed o return the report from coder-reviewer to coder.
-        ↓
-Manager →  Once coder-reviewer approved task, send report to child-documenter to update documentation file affected by chances made in task implementation.
-        ↓
-Child-documenter →  Recives report about changes made in code and update or create the documentation into /docs/documentation folder.
-        ↓
-Manager →  Once documentation is updated, send report to Project leader
-        ↓
-Project-leader → Show the report of task to user and ask if continue with next task.
-
+                              USER
+                               ↓
+                  PROJECT-LEADER (pure router)
+    ┌───────────┬──────────────┼──────────────┬─────────────┐
+    ↓           ↓              ↓              ↓             ↓
+PLANNER     IMPLEMENTER          QA      WEB-SEARCH          GOD
+    ↓             ↓              ↓           ↓               ↓
+PROJECT-     CONTEXT-SEARCHER            WEB-SEARCHER    (delegates to a fitting
+STRUCTURE         ↓                          (max 4        subagent when one
+    ↓         CODER-PROPOSAL               atomic          exists, otherwise
+TASK-PLANNER        ↓                      calls)          handles the order
+    ↓             CODER                    ↓               directly, with full
+    ↓         ┌──→ CODER-REVIEWER         REPORT            read/write/bash/task)
+(docs)        │  (REJECTED → CODER        ↑
+ ↓            │   again with feedback)      ↑
+ ↓            └──→ DOCUMENTER               ↑
+ ↓                 (update-by-changes)      │
+ ↓                      ↑                   │
+ ↓                     CODER                │
+ ↓                  (approved work)         │
+ ↓                                          │
+    └──── LOGS.md + LESSONS_LEARNED.md (when ≥1 REJECTED)
 ```
 
-## 🔗 Workflow using Coder-fixer
-
-```
-
-User ask about changes about code or ask about project 
-        ↓
-Coder-fixer ← Recives the specifications from user to make a task and send it to coder-proposal
-        ↓
-Coder-proposal ← Search into repository (or he can to use mcp to search enough context to user task)
-        ↓
-Coder-fixer ← Recives the report from coder proposal and show it to user to make validate for user. Once is validated by user, the report is sent to coder.
-        ↓
-coder →  Recive the task from coder-fixer and make the task
-        ↓
-Coder-fixer →  Chose depends on the output of coder-reviewer if task is completed o return the report from coder-reviewer to coder.
-        ↓
-Manager →  Once coder-reviewer approved task, send the changes report to child-documenter.
-        ↓
-child-documenter →  Use the changes report to update current documentation.
-        ↓
-Manager →  Once coder-reviewer approved task and documentation is updated, return a report to user
-
-```
+- **PLANNER** branch writes: `docs/REQUIREMENTS.md` (`orchestrator-planner`), `docs/PROJECT_STRUCTURE.md` + `docs/FRAMEWORKS.md` (`project-structure`), `docs/tasks/NNN-*.md` + `docs/index-tasks.md` (`task-planner`).
+- **IMPLEMENTER** branch runs: `context-searcher` → `coder-proposal` → `coder` ⇄ `coder-reviewer` (REJECTED → loop back to `coder`) → on **APPROVED** → `documenter` (`update-by-changes`), plus `docs/LOGS.md` (always) and `docs/LESSONS_LEARNED.md` (only if ≥ 1 REJECTED occurred).
+- **QA** branch delegates to `context-searcher` only — read-only, nothing is written.
+- **WEB-SEARCH** branch delegates to `web-searcher` up to 4 times, then consolidates a report.
+- **GOD** branch has full permissions and uses any subagent or handles the request directly.
