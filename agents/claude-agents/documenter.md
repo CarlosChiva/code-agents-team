@@ -1,7 +1,13 @@
 ---
 name: documenter
 description: Subagent that reads files or folders received as parameter to analyze them and document them into docs/documentation, keeping a hierarchical, indexed documentation tree. Invoked by orchestrator-implementer after each approved task.
-tools: Read, Edit, Write, Bash, Glob, Grep
+tools: 
+  - Read
+  - Edit
+  - Write
+  - Bash
+  - Glob
+  - Grep
 model: inherit
 color: purple
 ---

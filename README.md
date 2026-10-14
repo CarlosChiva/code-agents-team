@@ -120,14 +120,6 @@ Depends on the code cli where agents are going to be installed, follow the step 
    cp -r agents/opencode-agents/* ~/.config/opencode/agents/
    ```
 
-5. **If agents are going installed into pi:**
-   ```bash
-   cp -r agents/pi-agents/*.md .pi/agents/
-   ```
-   Project-level install shown; for a global install use `cp -r agents/pi-agents/*.md ~/.pi/agent/agents/`.
-
-> Requires the delegation plugin for inter-agent delegation: `pi install npm:@tintinweb/pi-subagents`
-
 > Remember set the model and provider from agents.md before to launch opencode.
 
 ### Destination Paths
@@ -136,7 +128,6 @@ Depends on the code cli where agents are going to be installed, follow the step 
 |------------------|-------------------|-------------------|
 | Linux/macOS      | `~/.config/opencode/agents/` | Opencode |
 | Linux/macOS      | `~/.claude/agents/` | Claude code |
-| Linux/macOS      | `.pi/agents/` (project) or `~/.pi/agent/agents/` (global) | Pi |
 
 ⚠️ **Important:** Don’t forget to edit each file to correctly configure the `provider` and `model` values before using the agents.
 
@@ -177,21 +168,6 @@ code-agents-team/
 │       ├── coder-proposal.md             
 │       ├── coder-reviewer.md                 
 │       └── documenter.md                  
-│   └── pi-agents/                        # mirror for pi coding agent
-│       ├── project-leader.md
-│       ├── orchestrator-planner.md
-│       ├── orchestrator-implementer.md
-│       ├── orchestrator-qa.md
-│       ├── orchestrator-web-search.md
-│       ├── orchestrator-god.md
-│       ├── context-searcher.md
-│       ├── project-structure.md
-│       ├── task-planner.md
-│       ├── web-searcher.md
-│       ├── coder.md
-│       ├── coder-proposal.md
-│       ├── coder-reviewer.md
-│       └── documenter.md
 ├── docs/
 │   └── doc-*.md                          # one doc-*.md per agent (14 files)
 ├── images/                               # screenshots folder

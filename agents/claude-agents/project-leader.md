@@ -1,7 +1,8 @@
 ---
 name: project-leader
 description: Único punto de contacto con el usuario. No toma decisiones técnicas, solo identifica la intención y delega al orquestador correspondiente.
-tools: Agent(orchestrator-planner,orchestrator-implementer,orchestrator-qa,orchestrator-web-search,orchestrator-god)
+tools: 
+    -Agent(orchestrator-planner,orchestrator-implementer,orchestrator-qa,orchestrator-web-search,orchestrator-god)
 model: inherit
 color: blue
 ---

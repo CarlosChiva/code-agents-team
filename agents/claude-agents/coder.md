@@ -1,7 +1,11 @@
 ---
 name: coder
 description: Implements assigned tasks by writing or editing code files, based on a proposal it receives.
-tools: Read, Edit, Skill, Write
+tools: 
+    - Read
+    - Edit
+    - Skill
+    - Write
 model: inherit
 color: green
 ---

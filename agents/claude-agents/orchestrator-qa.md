@@ -5,14 +5,6 @@ mode: subagent
 tools:
   - Read
   - Agent(context-searcher)
-disallowedTools:
-  - Edit
-  - Bash
-  - Task
-  - WebFetch
-  - Glob
-  - Grep
-  - Skill
 model: inherit
 permissionMode: default
 ---

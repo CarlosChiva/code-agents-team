@@ -4,15 +4,6 @@ description: Orquestador de búsqueda web — resuelve peticiones de informació
 mode: subagent
 tools:
   - Agent(web-searcher)
-disallowedTools:
-  - Read
-  - Edit
-  - Bash
-  - Glob
-  - Grep
-  - Task
-  - WebFetch
-  - Skill
 model: inherit
 permissionMode: default
 ---

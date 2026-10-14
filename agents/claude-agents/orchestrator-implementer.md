@@ -8,12 +8,6 @@ tools:
   - Edit
   - Task
   - Agent(context-searcher, coder-proposal, coder, coder-reviewer, documenter)
-disallowedTools:
-  - WebFetch
-  - Bash
-  - Glob
-  - Grep
-  - Skill
 model: inherit
 permissionMode: default
 ---

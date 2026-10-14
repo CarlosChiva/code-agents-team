@@ -10,9 +10,6 @@ tools:
   - Glob
   - Grep
   - Skill
-disallowedTools:
-  - Task
-  - WebFetch
 model: inherit
 permissionMode: default
 ---

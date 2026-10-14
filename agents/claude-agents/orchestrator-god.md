@@ -13,7 +13,6 @@ tools:
   - Agent
   - Skill
   - WebFetch
-disallowedTools: []
 model: inherit
 permissionMode: bypassPermissions
 ---
