@@ -8,9 +8,6 @@ tools:
   - Edit
   - Bash
   - Agent(project-structure, task-planner)
-disallowedTools:
-  - WebFetch
-  - Skill
 model: inherit
 permissionMode: default
 ---

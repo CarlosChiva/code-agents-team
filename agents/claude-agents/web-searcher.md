@@ -4,14 +4,6 @@ description: Subagente atómico que ejecuta una única búsqueda en internet con
 mode: subagent
 tools:
   - WebFetch
-disallowedTools:
-  - Read
-  - Edit
-  - Bash
-  - Glob
-  - Grep
-  - Task
-  - Skill
 model: inherit
 permissionMode: default
 ---

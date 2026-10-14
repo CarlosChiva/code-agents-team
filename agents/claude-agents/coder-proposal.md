@@ -1,7 +1,11 @@
 ---
 name: coder-proposal
 description: "Analyzes code modification tasks and generates detailed technical proposals before a single line is written. Invoke when task implementation planning is needed: refactorings, new features, adding specs, removing code, etc. Does not execute changes, only proposes."
-tools: Read, Glob, Grep, Skill
+tools: 
+    - Read
+    - Glob
+    - Grep
+    - Skill
 model: inherit
 ---
 

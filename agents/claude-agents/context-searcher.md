@@ -9,10 +9,7 @@ tools:
   - Skill
   - Task
   - Agent(explore)
-disallowedTools:
-  - Edit
-  - WebFetch
-  - Bash
+
 model: inherit
 permissionMode: default
 ---

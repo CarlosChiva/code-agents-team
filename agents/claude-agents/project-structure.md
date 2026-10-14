@@ -9,9 +9,6 @@ tools:
   - Bash
   - Skill
   - WebFetch
-disallowedTools:
-  - Task
-  - Agent
 model: inherit
 permissionMode: default
 ---
