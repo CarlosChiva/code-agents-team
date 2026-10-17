@@ -1,29 +1,38 @@
 ---
-name: coder
 description: Implements assigned tasks by writing or editing code files, based on a proposal it receives.
 mode: subagent
-model: 
-permission:
-   write:
-      "*": allow
-      "docs/*": deny
-      "docs/tasks/*": deny
-   task: deny
-   read:
-      "*": allow
-   edit:
-      "*": allow
-      "docs/*": deny
-      "docs/tasks/*": deny
-   bash:
-      "*": allow
-      "cat *": deny
-      "git *": deny
-   glob: allow
-   grep: allow
-   skill: allow
 color: "#50c878"
-
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: edit
+    resource: "*"
+    effect: allow
+  - action: edit
+    resource: docs/*
+    effect: deny
+  - action: shell
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "cat *"
+    effect: deny
+  - action: shell
+    resource: "git *"
+    effect: deny
+  - action: glob
+    resource: "*"
+    effect: allow
+  - action: grep
+    resource: "*"
+    effect: allow
+  - action: skill
+    resource: "*"
+    effect: allow
 ---
 
 The only agent that writes code. Receives one task with a proposal (or, on a correction round, the original task plus reviewer feedback).

@@ -1,22 +1,29 @@
 ---
-name: documenter
 description: Subagent that reads files or folders received as parameter to analyze them and document them into docs/documentation, keeping a hierarchical, indexed documentation tree. Invoked by orchestrator-implementer after each approved task.
 mode: subagent
-model: 
-permission:
-  task: deny
-  write:
-    "*": deny
-    "docs/documentation/**": allow
-    "docs/documentation/*": allow
-  edit:
-    "docs/documentation/**": allow
-    "docs/documentation/*": allow
-  grep: allow
-  glob: allow
-  bash: allow
-  read: allow
 color: "#a0a0a0"
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: docs/documentation/*
+    effect: allow
+  - action: grep
+    resource: "*"
+    effect: allow
+  - action: glob
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: allow
+  - action: read
+    resource: "*"
+    effect: allow
 ---
 
 Read source code and maintain a hierarchical, indexed technical-doc tree under `docs/documentation/`. Map: each repo folder `X/Y/` → `docs/documentation/X/Y.md`; each top-level folder `X/` → `docs/documentation/X.md`. Goal: let an AI agent read the minimum docs needed per context window. You operate in 4 modes.
