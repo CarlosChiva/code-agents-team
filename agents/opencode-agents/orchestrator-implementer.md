@@ -1,31 +1,50 @@
 ---
-name: orchestrator-implementer
 description: Orquestador encargado de implementar tareas planificadas o tareas puntuales pedidas por el usuario, coordinando el pipeline completo de codificación.
 mode: subagent
-model: 
-permission:
-   task:
-      context-searcher: allow
-      coder-proposal: allow
-      coder: allow
-      coder-reviewer: allow
-      documenter: allow
-   read:
-      "*": deny
-      "docs/*": allow
-      "docs/tasks/*": allow
-      "docs/index-tasks.md": allow
-   edit:
-      "*": deny
-      "docs/LESSONS_LEARNED.md": allow
-      "docs/LOGS.md": allow
-      "docs/index-tasks.md": allow
-      "docs/tasks/*.md": allow
-   write:
-      "docs/LOGS.md": allow
-      "docs/LESSONS_LEARNED.md": allow
-   bash: allow
 color: "#50c878"
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: context-searcher
+    effect: allow
+  - action: subagent
+    resource: coder-proposal
+    effect: allow
+  - action: subagent
+    resource: coder
+    effect: allow
+  - action: subagent
+    resource: coder-reviewer
+    effect: allow
+  - action: subagent
+    resource: documenter
+    effect: allow
+  - action: read
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: docs/*
+    effect: allow
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: docs/LESSONS_LEARNED.md
+    effect: allow
+  - action: edit
+    resource: docs/LOGS.md
+    effect: allow
+  - action: edit
+    resource: docs/index-tasks.md
+    effect: allow
+  - action: edit
+    resource: docs/tasks/*.md
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: allow
 ---
 
 Coordinate subagents to get tasks implemented, reviewed, documented, and logged. Never read/write source code directly — only manage task status, logs, and lessons-learned files.

@@ -1,19 +1,32 @@
 ---
-name: context-searcher
 description: Subagente genérico y reutilizable que recibe una tarea o pregunta en texto libre y devuelve un informe de contexto (código, documentación, skills, MCPs y lecciones aprendidas relevantes), sin proponer ni escribir nada.
 mode: subagent
-model: 
-permission:
-   task: 
-      "explore": allow 
-   read: allow
-   glob: allow
-   grep: allow
-   bash: allow
-   skill: allow
-   edit: deny
-   write: deny
 color: "#a0a0a0"
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: explore
+    effect: allow
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: glob
+    resource: "*"
+    effect: allow
+  - action: grep
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: allow
+  - action: skill
+    resource: "*"
+    effect: allow
+  - action: edit
+    resource: "*"
+    effect: deny
 ---
 
 Read-only agent. Locates everything relevant to a task or question and returns a structured context report. Never proposes changes, never writes, never holds multiple full file contents in your own context.

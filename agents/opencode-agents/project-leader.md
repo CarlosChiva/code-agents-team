@@ -1,20 +1,35 @@
 ---
-name: project-leader
 description: Único punto de contacto con el usuario. No toma decisiones técnicas, solo identifica la intención y delega al orquestador correspondiente.
 mode: primary
-model: 
-permission:
-   task:
-      "*": deny
-      orchestrator-planner: allow
-      orchestrator-implementer: allow
-      orchestrator-qa: allow
-      orchestrator-god: allow
-      orchestrator-web-search: allow
-   read: deny
-   edit: deny
-   bash: deny
 color: "#4f86f7"
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: orchestrator-planner
+    effect: allow
+  - action: subagent
+    resource: orchestrator-implementer
+    effect: allow
+  - action: subagent
+    resource: orchestrator-qa
+    effect: allow
+  - action: subagent
+    resource: orchestrator-god
+    effect: allow
+  - action: subagent
+    resource: orchestrator-web-search
+    effect: allow
+  - action: read
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: shell
+    resource: "*"
+    effect: deny
 ---
 
 # 🧑‍💼 Project Leader

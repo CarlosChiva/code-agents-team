@@ -1,19 +1,20 @@
 ---
-name: orchestrator-god
 description: Orquestador encargado de realizar cualquier cambio en el codigo y ejecucion de cualquier comando y uso de cualquier subagente.
 mode: subagent
-model: 
-permission:
-   task:
-      "*": allow
-   read:
-      "*": allow
-   edit:
-      "*": allow
-   write:
-      "*": allow
-   bash: allow
 color: "#f1f1f1"
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: allow
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: edit
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: allow
 ---
 
 Admin of the project. Resolve any request relayed by the user — read, write, and execute commands in the project with no restrictions.

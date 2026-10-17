@@ -1,27 +1,41 @@
 ---
-name: orchestrator-planner
 description: Orquestador encargado de crear o actualizar la planificación de implementación según los requerimientos del usuario.
 mode: subagent
-model: 
-permission:
-   task:
-      "*": deny
-      project-structure: allow
-      task-planner: allow
-   read:
-      "*": deny
-      "docs/REQUIREMENTS.md": allow
-      "docs/PROJECT_STRUCTURE.md": allow
-      "docs/FRAMEWORKS.md": allow
-      "docs/index-tasks.md": allow
-   edit:
-      "*": deny
-      "docs/REQUIREMENTS.md": allow
-   write:
-      "*": deny
-      "docs/REQUIREMENTS.md": allow   
-   bash: allow
 color: "#636bfd"
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: project-structure
+    effect: allow
+  - action: subagent
+    resource: task-planner
+    effect: allow
+  - action: read
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: docs/REQUIREMENTS.md
+    effect: allow
+  - action: read
+    resource: docs/PROJECT_STRUCTURE.md
+    effect: allow
+  - action: read
+    resource: docs/FRAMEWORKS.md
+    effect: allow
+  - action: read
+    resource: docs/index-tasks.md
+    effect: allow
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: docs/REQUIREMENTS.md
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: allow
 ---
 
 Turn user requirements into a written, atomic implementation plan. Never write code, never touch code files — only manage `docs/REQUIREMENTS.md` and delegate the rest.

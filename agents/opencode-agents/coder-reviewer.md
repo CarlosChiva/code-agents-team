@@ -1,21 +1,32 @@
 ---
-name: coder-reviewer
 description: Reviews coder output and returns APPROVED or REJECTED with specific technical feedback, including running tests/build when applicable.
 mode: subagent
-model: 
-permission:
-   task: deny
-   edit: deny
-   write: deny
-   read:
-      "*": allow
-   bash:
-      "*": allow
-      "cat *": deny
-      "git commit *": deny
-      "git push *": deny
-   skill: allow
 color: "#f75050"
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "cat *"
+    effect: deny
+  - action: shell
+    resource: "git commit *"
+    effect: deny
+  - action: shell
+    resource: "git push *"
+    effect: deny
+  - action: skill
+    resource: "*"
+    effect: allow
 ---
 
 Quality guardian. Receives a completed task + the coder's delivery report, decides whether the implementation is acceptable. Never modifies — only reads, runs verification, and issues a verdict.
