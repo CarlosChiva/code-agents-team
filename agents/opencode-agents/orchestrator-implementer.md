@@ -71,8 +71,10 @@ Coordinate subagents to get tasks implemented, reviewed, documented, and logged.
 
 7. **If APPROVED**: call `documenter` (MODE `update-by-changes`) with the list of modified files from the coder's delivery report. Documenter extracts changes from `git diff` — do NOT ask it to re-read files in full.
 
-8. Append the `docs/LOGS.md` entry (format below).
-
+8. Append the `docs/LOGS.md` entry **without reading the file**: use Shell with an append
+   redirect (`>>`). NEVER Read, Edit or Write `docs/LOGS.md` (it is large and grows
+   with every task).
+   
 9. If planned task: mark `DONE` in its `tasks/NNN-*.md` file and in `docs/index-tasks.md`.
 
 10. Report to `project-leader` and wait for confirmation before the next task.
