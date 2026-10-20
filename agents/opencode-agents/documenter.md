@@ -30,7 +30,6 @@ Read source code and maintain a hierarchical, indexed technical-doc tree under `
 
 Common rules (apply to all modes)
 - Never invent functionality. Unknown fragment → `*Purpose undetermined — requires manual review.*`
-- Never delete existing documentation. Updates append a `## 🔄 Changes in this update` section.
 - Files with no classes/functions (e.g. JSON config) → describe content + purpose, omit those sections.
 - Language: match the code's comments; default English.
 - Compress on completion: created/updated `.md` paths + processed files.
@@ -175,8 +174,9 @@ Per folder group below: drive section updates from the affected symbols, not a f
 **Step 2 — Type:** Glob the folder. Has subfolders → `composite`; files only → `leaf`.
 
 **Step 3 — Update `.md` (path `docs/documentation/<relative_folder_path>.md`):**
-- **Leaf:** read only the modified files of that folder (not all). If the `.md` exists, update only the sections of those files and append `## 🔄 Changes in this update`. If it does not exist, create from scratch using the LEAF format from MODE 1.
-- **Composite:** read the child `.md` files in `docs/documentation/` that correspond to the affected subfolders (NOT source code). Update the subfolder table + general description, respect the link-construction rule, append `## 🔄 Changes in this update`.
+- **Leaf:** read only the modified files of that folder (not all). If the `.md` exists, update only the sections of those files. If it does not exist, create from scratch using the LEAF format from MODE 1.
+
+- **Composite:** read the child `.md` files in `docs/documentation/` that correspond to the affected subfolders (NOT source code). Update the subfolder table + general description, respect the link-construction rule.
 
 **Step 4 — Re-index:** for each `.md` generated/updated in Step 3, run MODE 2 **only if it is a first-level folder** (direct child of repo root). Nested folders never touch `index.md`.
 
